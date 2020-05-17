@@ -6,6 +6,11 @@
   </head>
 
   <body>
+
+    <ul>
+        <li><a href="{{ url_for('visits_index') }}">Selaa vierailuja</a></li>
+        <li><a href="{{ url_for('visits_form') }}">Lisää vierailu</a></li>
+    </ul>
     {% block body %}
       <p>
         Content.
