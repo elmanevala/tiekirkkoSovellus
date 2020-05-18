@@ -8,6 +8,6 @@ Suomessa on 265 tiekirkkoa. Sovelluksen käyttäjät voivat kirjoittaa vierailui
 
 ## Dokumentaatio
 
-* tähän käyttötapauksia
-* [tietokantakaavio](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/tietokantakaavio.png)
+* [User stories]((https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/user_stories.md)
+* [Tietokantakaavio](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/tietokantakaavio.png)
 
