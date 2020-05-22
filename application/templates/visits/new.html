@@ -1,9 +1,31 @@
 {% extends "layout.html" %}
   
+
 {% block body %}
 <form method="POST" action="{{ url_for('visits_create') }}">
-  <input type="text" name="church"/>
-  <input type="text" name="comment"/>
-  <input type="submit" value="Lisää vierailu!"/>
+  <table>
+    <tr>
+     <td>
+       {{ form.church.label }}
+     </td>
+     <td>
+        {{ form.church}}
+     </td>
+    </tr>
+    <tr>
+    <td>
+      {{ form.comment.label }}
+    </td>
+
+     <td>
+    {{ form.comment }}
+   </td>
+  </tr>
+  </tr>
+    <tr>
+      <td colspan="2">
+       <input type="submit" value="Lisää vierailu!"/>
+      </td>
+    </tr>
 </form>
 {% endblock %}

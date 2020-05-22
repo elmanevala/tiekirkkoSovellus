@@ -1,10 +1,11 @@
 from application import db, app
 from flask import redirect, url_for, render_template, request
 from application.visits.models import Visit
+from application.visits.forms import VisitForm
 
 @app.route("/visits/new/")
 def visits_form():
-    return render_template("visits/new.html")
+    return render_template("visits/new.html", form = VisitForm())
 
 @app.route("/visits/", methods=["POST"])
 def visits_create():
