@@ -1,5 +1,5 @@
 from flask import redirect, url_for, render_template, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from application.visits.models import Visit
 from application.visits.forms import VisitForm
@@ -20,6 +20,7 @@ def visits_create():
     
     v = Visit(form.church.data, form.comment.data)
     v.tourguide = form.tourguide.data
+    v.account_id = current_user.id
 
     db.session().add(v)
     db.session().commit()
@@ -29,7 +30,7 @@ def visits_create():
 @app.route("/visit", methods=["GET"])
 @login_required
 def visits_index():
-    return render_template("visits/list.html", visits = Visit.query.all())
+    return render_template("visits/list.html", visits = Visit.query.filter(Visit.account_id == current_user.id))
 
 @app.route("/visits/<visit_id>/", methods=["POST"])
 @login_required
