@@ -7,3 +7,10 @@ class VisitForm(FlaskForm):
     tourguide = BooleanField("Opas paikalla")
     class Meta:
         csrf = False
+
+
+class EditForm(FlaskForm):
+    comment = StringField("Kommentti",  [validators.Length(min=2)])
+
+    class Meta:
+        csrf = False

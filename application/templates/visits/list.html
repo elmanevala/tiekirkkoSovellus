@@ -1,23 +1,23 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>Kirkko</th>
-      <th>Kommentti</th>
-      <th>Opas paikalla</th>
-    </tr>
-    {% for visit in visits %}
-    <tr>
-      <td>{{ visit.church }}</td>
-      <td>{{ visit.comment }}</td>
-      <td>{{ visit.tourguide }}</td>
-      <td>
-        <form method="POST" action="{{ url_for('tourguide_set_present', visit_id=visit.id) }}">
-          <input type="submit" value="Opas paikalla!"/>
-        </form>
-        </td>
-    </tr>
-    {% endfor %}
-  </table>
+<table>
+  <tr>
+    <th>Kirkko</th>
+    <th>Kommentti</th>
+    <th>Opas paikalla</th>
+  </tr>
+  {% for visit in visits %}
+  <tr>
+    <td>{{ visit.church }}</td>
+    <td>{{ visit.comment }}</td>
+    <td>{{ visit.tourguide }}</td>
+    <td>
+      <form method="POST" action="{{ url_for('visit_edit', visit_id=visit.id) }}">
+        <input type="submit" value="Muokkaa" />
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
 {% endblock %}
