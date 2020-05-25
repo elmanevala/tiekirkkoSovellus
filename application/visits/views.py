@@ -36,15 +36,20 @@ def visits_index():
     return render_template("visits/list.html", visits=Visit.query.filter(Visit.account_id == current_user.id))
 
 
-@app.route("/visits/<visit_id>/", methods=["POST"])
+@app.route("/visits/edit/<visit_id>/tourguide", methods=["POST"])
 @login_required
 def tourguide_set_present(visit_id):
 
     v = Visit.query.get(visit_id)
-    v.tourguide = True
+
+    if v.tourguide == True:
+        v.tourguide = False
+    else:
+        v.tourguide = True
+
     db.session().commit()
 
-    return redirect(url_for("visits_index"))
+    return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm())
 
 
 @app.route("/visits/edit/<visit_id>/", methods=["GET", "POST"])
