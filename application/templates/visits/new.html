@@ -14,7 +14,7 @@
       <td>
         <ul>
           {% for error in form.church.errors %}
-          <li>{{ error }}</li>
+          <li>Kirkon oltava ainakin kaksi merkkiä pitkä</li> <!Tähän tulevaisuudessa tarkistus, että kirkko on olemassa>
           {% endfor %}
         </ul>
       </td>
@@ -29,7 +29,7 @@
       <td>
         <ul>
           {% for error in form.comment.errors %}
-          <li>{{ error }}</li>
+          <li>Kommentin oltava ainakin kaksi merkkiä pitkä</li>
           {% endfor %}
         </ul>
       </td>

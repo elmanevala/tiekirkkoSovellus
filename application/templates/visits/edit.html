@@ -56,6 +56,15 @@
                 <input type="submit" value="Tallenna uusi kommentti" />
             </td>
         </tr>
+        <tr>
+            <td>
+                <ul>
+                    {% for error in form.comment.errors %}
+                    <li>Uuden kommentin oltava vähintään kaksi merkkiä pitkä</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
     </form>
 </table>
 {% endblock %}

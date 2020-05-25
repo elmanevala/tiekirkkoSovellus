@@ -64,14 +64,12 @@ def visits_edit_entry(visit_id):
 
     form = EditForm(request.form)
 
-    print("TEKSTIKENTÄN DATA:" + form.comment.data)
-
     # Tähän validoinnit, kunhan vain kerkiän
+    if not form.validate():
+        return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=form)
 
     v = Visit.query.get(visit_id)
     v.comment = form.comment.data
-
-    print("TÄSSÄ KOMMENTTI: " + v.comment)
 
     db.session().add(v)
     db.session().commit()
