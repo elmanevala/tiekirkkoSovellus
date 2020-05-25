@@ -2,6 +2,7 @@
 
 
 {% block body %}
+<form method="POST" action="{{ url_for('visits_editEntry') }}">
 <table>
     <tr>
         <td>
@@ -18,14 +19,13 @@
         <td>
             {{ visit.comment }}
         </td>
-
     </tr>
     <tr>
         <td>
             Uusi kommentti
         </td>
         <td>
-            kenttä uudelle kommentille
+            {{ form.comment }}
         </td>
     </tr>
     <tr>
@@ -38,19 +38,15 @@
     </tr>
     <tr>
         <td>
-            <form method="POST" action="{{ url_for('tourguide_set_present', visit_id=visit.id) }}">
                 <input type="submit" value="Muuta oppaan statusta!" />
             </form>
         </td>
     </tr>
     <tr>
         <td colspan="2">
-            <form method="POST" action="{{ url_for('visits_editEntry', visit_id=visit.id) }}">
-                <input type="submit" value="Poista!:)" />
+                <input type="submit" value="Tallenna muutokset" />
         </td>
     </tr>
-    <tr>
-        <td>Nappula poistolle</td>
-    </tr>
 </table>
+</form>
 {% endblock %}

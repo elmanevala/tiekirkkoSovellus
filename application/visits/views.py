@@ -2,7 +2,7 @@ from flask import redirect, url_for, render_template, request
 from flask_login import login_required, current_user
 
 from application.visits.models import Visit
-from application.visits.forms import VisitForm
+from application.visits.forms import VisitForm, EditForm
 from application import db, app
 
 
@@ -51,22 +51,12 @@ def tourguide_set_present(visit_id):
 @login_required
 def visit_edit(visit_id):
 
-    return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id))
+    return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm())
 
 
 @app.route("/visits/", methods=["POST"])
 @login_required
 def visits_editEntry(visit_id):
-    form = EditForm(request.form)
-
-    if not form.validate():
-        return render_template("visits/new.html", form=form)
-
-    v = Visit(form.church.data, form.comment.data)
-    v.tourguide = form.tourguide.data
-    v.account_id = current_user.id
-
-    db.session().add(v)
-    db.session().commit()
+ 
 
     return redirect(url_for("visits_index"))
