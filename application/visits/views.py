@@ -59,20 +59,32 @@ def visit_edit(visit_id):
     return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm())
 
 
-@app.route("/visits/", methods=["POST"])
+@app.route("/visits/edit/<visit_id>/entry/", methods=["GET", "POST"])
 @login_required
-def visits_editEntry(visit_id):
+def visits_edit_entry(visit_id):
+    form = EditForm(request.form)
+
+    print("TEKSTIKENTÄN DATA:" + form.comment.data)
+
+    # Tähän validoinnit, kunhan vain kerkiän
+
+    v = Visit.query.get(visit_id)
+    v.comment = form.comment.data
+
+    print("TÄSSÄ KOMMENTTI: " + v.comment)
+
+    db.session().add(v)
+    db.session().commit()
 
     return redirect(url_for("visits_index"))
 
 
-@app.route("/visits/<visit_id>/delete", methods=["POST"]) 
+@app.route("/visits/<visit_id>/delete", methods=["POST"])
 @login_required
 def visit_delete(visit_id):
 
     Visit.query.filter(Visit.id == visit_id).delete()
-    db.session().commit()   
+    db.session().commit()
 
     return redirect(url_for("visits_index"))
-
 

@@ -29,14 +29,6 @@
     </tr>
     <tr>
         <td>
-            Uusi kommentti
-        </td>
-        <td>
-            {{ form.comment }}
-        </td>
-    </tr>
-    <tr>
-        <td>
             Opas paikalla
         </td>
         <td>
@@ -50,10 +42,20 @@
             </form>
         </td>
     </tr>
-    <tr>
-        <td colspan="2">
-            <input type="submit" value="Tallenna uusi kommentti" />
-        </td>
-    </tr>
+    <form methods="POST" action="{{ url_for('visits_edit_entry', visit_id=visit.id) }}">
+        <tr>
+            <td>
+                {{ form.comment.label }}
+            </td>
+            <td>
+                {{ form.comment }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Tallenna uusi kommentti" />
+            </td>
+        </tr>
+    </form>
 </table>
 {% endblock %}

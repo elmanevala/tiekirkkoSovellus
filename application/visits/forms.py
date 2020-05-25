@@ -10,7 +10,7 @@ class VisitForm(FlaskForm):
 
 
 class EditForm(FlaskForm):
-    comment = StringField("Kommentti",  [validators.Length(min=2)])
+    comment = StringField("Uusi kommentti",  [validators.Length(min=2)])
 
     class Meta:
         csrf = False
