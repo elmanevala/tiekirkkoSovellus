@@ -49,19 +49,19 @@ def tourguide_set_present(visit_id):
 
     db.session().commit()
 
-    return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm())
+    return redirect(url_for("visit_edit", visit_id=visit_id, form=EditForm()))
 
 
 @app.route("/visits/edit/<visit_id>/", methods=["GET", "POST"])
 @login_required
 def visit_edit(visit_id):
-
     return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm())
 
 
 @app.route("/visits/edit/<visit_id>/entry/", methods=["GET", "POST"])
 @login_required
 def visits_edit_entry(visit_id):
+
     form = EditForm(request.form)
 
     print("TEKSTIKENTÄN DATA:" + form.comment.data)
@@ -87,4 +87,3 @@ def visit_delete(visit_id):
     db.session().commit()
 
     return redirect(url_for("visits_index"))
-

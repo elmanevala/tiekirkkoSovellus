@@ -42,7 +42,7 @@
             </form>
         </td>
     </tr>
-    <form methods="POST" action="{{ url_for('visits_edit_entry', visit_id=visit.id) }}">
+    <form method="POST" action="{{ url_for('visits_edit_entry', visit_id=visit.id) }}">
         <tr>
             <td>
                 {{ form.comment.label }}
