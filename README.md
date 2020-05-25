@@ -5,6 +5,10 @@ Suomessa on 265 tiekirkkoa. Sovelluksen käyttäjät voivat kirjoittaa vierailui
 ## Sovellus herokussa
 
 * [Tiekirkkosovellus](https://tiekirkkosovellus.herokuapp.com)
+* Kirjautumistiedot:
+	* Käyttäjänimi: käyttäjä
+	* Salasana: salasana
+		* salasanan turvallisuuden parantaminen työn alla
 
 ## Dokumentaatio
 
