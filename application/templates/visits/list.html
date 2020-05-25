@@ -17,6 +17,11 @@
         <input type="submit" value="Muokkaa" />
       </form>
     </td>
+    <td>
+      <form method="POST" action="{{ url_for('visit_delete', visit_id=visit.id) }}">
+        <input type="submit" value="Poista arvio" />
+      </form>
+    </td>
   </tr>
   {% endfor %}
 </table>

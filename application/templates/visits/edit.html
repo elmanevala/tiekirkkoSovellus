@@ -3,50 +3,59 @@
 
 {% block body %}
 <form method="POST" action="{{ url_for('visits_editEntry') }}">
-<table>
-    <tr>
-        <td>
-            Kirkko
-        </td>
-        <td>
-            {{ visit.church }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Nykyinen kommentti
-        </td>
-        <td>
-            {{ visit.comment }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Uusi kommentti
-        </td>
-        <td>
-            {{ form.comment }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Opas paikalla
-        </td>
-        <td>
-            {{ visit.tourguide }}
-        </td>
-    </tr>
-    <tr>
-        <td>
+    <table>
+        <tr>
+            <td>
+                Kirkko
+            </td>
+            <td>
+                {{ visit.church }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Nykyinen kommentti
+            </td>
+            <td>
+                {{ visit.comment }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Vierailu lisätty
+            </td>
+            <td>
+                {{ visit.date_created}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Uusi kommentti
+            </td>
+            <td>
+                {{ form.comment }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Opas paikalla
+            </td>
+            <td>
+                {{ visit.tourguide }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form method="POST" action="{{ url_for('tourguide_set_present', visit_id=visit.id) }}">
                 <input type="submit" value="Muuta oppaan statusta!" />
-            </form>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
                 <input type="submit" value="Tallenna muutokset" />
-        </td>
-    </tr>
-</table>
+            </td>
+        </tr>
+    </table>
 </form>
 {% endblock %}
