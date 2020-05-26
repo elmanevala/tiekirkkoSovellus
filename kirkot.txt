@@ -1,0 +1,275 @@
+Akaa, Kylmäkosken kirkko
+Alajärvi, Gabrielin kirkko
+Alajärvi, Lehtimäen kirkko
+Alavus, Alavuden kirkko
+Asikkala, Asikkalan kirkko
+Enontekiö, Enontekiön (Hetan)
+Espoo, Espoon tuomiokirkko
+Espoo, Otaniemen kappeli
+Espoo, Tapiolan kirkko
+Eura, Euran kirkko
+Eurajoki, Irjanteen kirkko
+Eurajoki, Luvian kirkko
+Forssa, Forssan kirkko
+Haapajärvi, Kristuksen Kirkastumisenkirkko
+Hartola, Hartolan kirkko
+Hattula, Pyhän Ristin kirkko
+Heinola, Heinolan kirkko
+Heinävesi, Heinäveden Kirkastusvuoren kirkko
+Heinävesi, Valamon luostarin Kristuksen Kirkastumisen kirkko
+Helsinki, Kallion kirkko
+Hollola, Hollolan Pyhän Marian kirkko
+Huittinen, Huittisten Pyhän Katariinan Kirkko
+Huittinen, Vampulan kirkko
+Hyrynsalmi, Hyrynsalmen kirkko
+Hyvinkää, Hyvinkään kirkko
+Hämeenkyrö, Hämeenkyrön kirkko
+Hämeenlinna, Hauhon Pyhän Johannes Kastajan kirkko
+Hämeenlinna, Hämeenlinnan kirkko
+Hämeenlinna, Rengon Pyhän Jaakon kirkko
+Ii, Iin kirkko
+Iisalmi, Kustaa Aadolfin kirkko
+Ikaalinen, Fredrika Sofian kirkko
+Ilmajoki, Ilmajoen kirkko
+Ilomantsi, Hattuvaaran pyhien apostolien Pietarin ja Paavalin tsasouna
+Ilomantsi, Ilomantsin evlut kirkko
+Ilomantsi, Pyhän profeetta Elian kirkko
+Imatra, Kolmen Ristin Kirkko
+Inari, Inarin kirkko (Saamelaiskirkko)
+Inkoo, Degerbyn kirkko
+Inkoo, Inkoon kirkko
+Isokyrö, Isonkyrön vanha kirkko
+Jalasjärvi, Jalasjärven kirkko
+Janakkala, Janakkalan Pyhän Laurin kirkko
+Joenu, Joensuun evlut kirkko
+Joenu, Utran kirkko
+Jomala, Pyhän Olavin kirkko
+Joroinen, Joroisten kirkko
+Joutsa, Joutsan kirkko
+Juankoski, Ylösnousemuksen kirkko
+Juva, Juvan kirkko
+Jyväskylä, Kaupunginkirkko
+Jyväskylä, Korpilahden kirkko
+Jyväskylä, Kristuksen ylösnousemuksen kirkko
+Jyväskylä, Kuokkalan kirkko
+Jämsä, Jämsän kirkko
+Jämsä, Kuoreveden kirkko
+Kaarina, Kuusiston kirkko
+Kaavi, Kaavin kirkko
+Kajaani, Kristuksen kirkastumisen kirkko
+Kajaani, Paltamon vanha kirkko
+Kalajoki, Himangan kirkko
+Kangasala, Kangasalan kirkko
+Kankaanpää, Kankaanpään kirkko
+Kannus, Kannuksen kirkko
+Kauhava, Kauhavan kirkko
+Kauhava, Kortesjärven kirkko
+Kauhava, Ylihärmän kirkko
+Kaustinen, Kaustisen kirkko
+Kemi, Kemin kirkko
+Kemi, Pyhän Johannes Kastajan syntymän kirkko
+Keminmaa, Keminmaan Uusi kirkko
+Kerava, Keravan kirkko
+Keuruu, Keuruun kirkko
+Kihniö, Kihniön kirkko
+Kirkkonummi, Haapajärven kirkko (Pyhän Martin kirkko)
+Kirkkonummi, Pyhän Mikaelin kirkko
+Kitee, Kesälahden kirkko
+Kitee, Kiteen kirkko
+Kittilä, Kittilän kirkko
+Kittilä, Marian kappeli
+Kiuruvesi, Kiuruveden kirkko
+Kokkola, Kaarlelan kirkko
+Kokkola, Lohtajan (Sophia Magdalenan) kirkko
+Konnevesi, Konneveden kirkko
+Kotka, Kotkan evlut kirkko
+Kotka, Pyhän Nikolaoksen kirkko
+Kouvola, Elimäen kirkko
+Kouvola, Jaalan kirkko
+Kouvola, Kouvolan Keskuskirkko
+Kouvola, Valkealan kirkko
+Kruunupyy, Teerijärven kirkko
+Kuhmo, Kuhmon kirkko
+Kuhmo, Lentiiran kirkko
+Kuhmoinen, Päijälän rukoushuone
+Kuopio, Kuopion Tuomiokirkko
+Kuopio, Maaningan kirkko
+Kuopio, Muuruveden kirkko
+Kuopio, Nilsiän kirkko
+Kuopio, Pyhän Nikolaoksen katedraali
+Kuopio, Riistaveden kirkko
+Kuopio, Vehmersalmen kirkko
+Kurikka, Kurikan kirkko
+Kuusamo, Pyhän Ristin kirkko
+Kärkölä, Kärkölän kirkko
+Kärsämäki, Kärsämäen Engelin kirkko
+Lahti, Lahden Ristinkirkko
+Lahti, Nastolan kirkko
+Laihia, Laihian kirkko
+Laitila, Pyhän Mikaelin kirkko
+Laitila, Untamalan Pyhän Pietarin kirkko
+Lapinlahti, Lapinlahden kirkko
+Lappeenranta, Lappeen kirkko
+Lappeenranta, Lauritsalan kirkko
+Lapua, Lapuan tuomiokirkko
+Lapua, Tiistenjoen kyläkirkko
+Lempäälä, Lempäälän kirkko
+Leppävirta, Leppävirran kirkko
+Lieto, Liedon kirkko
+Liminka, Limingan kirkko
+Liperi, Jumalanäidin Tihvinäläisen ikonin kirkko
+Lohja, Karjalohjan kirkko
+Lohja, Kärkölän kirkko
+Lohja, Nummen kirkko
+Lohja, Pulan kirkko
+Lohja, Sammatin kirkko
+Loimaa, Kanta-Loimaan kirkko  
+Loppi, Lopen kirkko
+Loppi, Lopen Vanha kirkko
+Loviisa, Ruotsinpyhtään kirkko
+Luhanka, Luhangan kesäkirkko
+Luoto, Luodon kirkko
+Mariehamn, Pyhän Yrjön kirkko    
+Masku, Askaisten kirkko
+Merikarvia, Merikarvian kirkko
+Mikkeli, Anttolan kirkko
+Mikkeli, Mikkelin Pitäjänkirkko
+Mikkeli, Mikkelin tuomiokirkko
+Muhos, Muhoksen kirkko
+Muonio, Muonion kirkko
+Muurame, Muuramen kirkko
+Mynämäki, Mynämäen Pyhän Laurin kirkko
+Mäntsälä, Mäntsälän kirkko
+Mänttä-Vilppula, Mäntän kirkko
+Mäntyharju, Mäntyharjun kirkko
+Naantali, Naantalin kirkko
+Naantali, Rymättylän Pyhän Jaakobin
+Noormarkku, Noormarkun kirkko
+Nousiainen, Nousiaisten Pyhän Henrikin
+Nurmes, Bomban tsasouna
+Nurmes, Nurmeksen evlut kirkko
+Nurmijärvi, Klaukkalan kirkko
+Nurmijärvi, Nurmijärven kirkko
+Orimattila, Orimattilan kirkko
+Orivesi, Oriveden kirkko
+Oulainen, Oulaisten kirkko
+Oulu, Haukiputaan kirkko
+Oulu, Oulun tuomiokirkko
+Oulu, Pyhän Kolminaiuden
+Outokumpu, Pyhän Hengen kirkko
+Parikkala, Parikkalan kirkko
+Parkano, Parkanon kirkko
+Pelkosenniemi, Kairosmajan Revontulikappeli
+Perho, Perhon kirkko
+Pieksämäki, Jäppilän kirkko
+Pieksämäki, Pieksämäen Vanha kirkko
+Pieksämäki, Virtasalmen kirkko
+Pielavesi, Apostolien Pietarin ja Paavalin kirkko
+Pielavesi, Pielaveden kirkko
+Pihtipudas, Pihtiputaan kirkko
+Piikkiö, Pyhän Nikolauksen kirkko
+Pirkkala, Pirkkalan kirkko
+Pirkkala, Pirkkalan Vanha kirkko
+Polvijärvi, Polvijärven Pyhän Johannes Kastajan kirkko
+Pomarkku, Pomarkun kirkko
+Pomarkku, Pomarkun vanha puukirkko
+Pori, Ahlaisten kirkko
+Pori, Apostoli Johannes Teologin kirkko
+Pori, Keski-Porin kirkko
+Pori, Reposaaren kirkko  arkisin
+Posio, Posion kirkko
+Pudasjärvi, Pudasjärven kirkko
+Puolanka, Puolangan kirkko
+Puumala, Puumalan Johannes Kastajan kirkko
+Pyhtää, Pyhän Henrikin kirkko
+Pyhäjoki, Pyhäjoen kirkko
+Pyhäranta, Pyhärannan kirkko
+Pälkäne, Luopioisten kirkko
+Pälkäne, Pälkäneen kirkko
+Raahe, Pattijoen Metsäkirkko
+Raahe, Pyhän Kolminaiuden kirkko
+Raahe, Saloisten Pyhän Olavin kirkko
+Raahe, Vihannin Sofia Magdalenan kirkko
+Raasepori, Pyhän Marian kirkko
+Raasepori, Snappertunan kirkko
+Raasepori, Tammisaaren kirkko
+Raisio, Raision Pyhän Martin kirkko
+Rauma, Pyhän Ristin kirkko
+Ristijärvi, Ristijärven kirkko
+Rovaniemi, Rovaniemen kirkko
+Ruokolahti, Ruokolahden kirkko
+Saarijärvi, Saarijärven kirkko
+Salo, Halikon kirkko
+Salo, Perniön Pyhän Laurin kirkko
+Salo, Teijon kirkko
+Sastamala, Sastamalan Pyhän Marian kirkko
+Sauvo, Karunan kirkko
+Sauvo, Sauvon Pyhän Klemensin kirkko
+Savitaipale, Savitaipaleen kirkko
+Savonlinna, Kerimäen kirkko
+Savonlinna, Savonlinnan Tuomiokirkko
+Seinäjoki, Lakeuden Risti
+Seinäjoki, Nurmon kirkko
+Seinäjoki, Peräseinäjoen kirkko
+Seinäjoki, Ylistaron kirkko
+Sievi, Sievin kirkko
+Siikajoki, Revonlahden kirkko
+Siikalatva, Piippolan kirkko
+Siilinjärvi, Siilinjärvi, Kristuksen tulemisen kirkko
+Sipoo, Sipoon kirkko
+Sipoo, Sipoon vanha kirkko
+Soini, Soinin kirkko
+Somero, Someron kirkko
+Sotkamo, Sotkamon kirkko
+Suomussalmi, Suomussalmen kirkko
+Suomussalmi, Vuokin kirkko
+Sysmä, Sysmän Pyhän Olavin kirkko
+Taivalkoski, Taivalkosken kirkko
+Taivassalo, Taivassalon kirkko
+Tammela, Tammelan kirkko
+Tampere, Aleksanterin kirkko
+Tampere, Lasten katedraali  Finlaysonin kirkko
+Tampere, Pyhien Aleksanteri Nevalaisen ja Nikolaoksen kirkko
+Tervo, Tervon kirkko
+Tervola, Tervolan Isokirkko
+Tervoola, Tervolan Vanha kirkko
+Toholampi, Toholammin kirkko
+Toivakka, Toivakan kirkko
+Tornio, Alatornion kirkko
+Tornio, Tornion kirkko
+Turku, Maarian kirkko
+Turku, Mikaelinkirkko
+Turku, Pyhän Katariinan kirkko
+Turku, Turun tuomiokirkko
+Tuusniemi, Tuusniemen kirkko
+Tuula, Tuusulan kirkko
+Ulvila, Ulvilan Pyhän Olavin kirkko
+Urjala, Urjalan kirkko
+Utajärvi, Utajärven kirkko
+Utsjoki, Utsjoen kirkko
+Uusikaupunki, Kalannin Pyhän Olavin kirkko
+Uusikaupunki, Lokalahden kirkko
+Uusikaupunki, Pyhämaan uhrikirkko
+Uusikaupunki, Pyhämaan uusi kirkko
+Uusikaupunki, Uudenkaupungin uusi kirkko
+Uusikaupunki, Uudenkaupungin vanha kirkko
+Vaasa, Pyhän Nikolaoksen kirkko
+Vaasa, Vaasan kirkko
+Valkeakoski, Sääksmäen kirkko
+Valtimo, Valtimon kirkko
+Vantaa, Vantaan Pyhän Laurin kirkko
+Varkaus, Varkauden pääkirkko
+Vehmaa, Pyhän Margareetan kirkko
+Veteli, Vetelin kirkko
+Vihti, Vihdin kirkko
+Vihti, Vihdin Pyhän Birgitan kirkon rauniot
+Viitasaari, Viitasaaren kirkko
+Vimpeli, Vimpelin Pyöreä kirkko
+Virrat, Virtain kirkko
+Vöyri, Oravaisten kirkko
+Ylöjärvi, Kurun kirkko
+Ylöjärvi, Ylöjärven kirkko
+Ähtäri, Honkiniemen kirkko
+Ähtäri, Ähtärin kirkko
+Äänekoski, Konginkankaan kirkko
+Äänekoski, Sumiaisten kirkko
