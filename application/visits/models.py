@@ -1,12 +1,7 @@
 from application import db
+from application.models import Base
 
-class Visit(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
-    onupdate=db.func.current_timestamp())
-
+class Visit(Base):
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
                            nullable=False)
 
