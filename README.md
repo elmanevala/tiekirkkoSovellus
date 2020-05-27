@@ -8,8 +8,8 @@ Suomessa on 265 tiekirkkoa. Sovelluksen käyttäjät voivat kirjoittaa vierailui
 * Kirjautumistiedot:
 	* Käyttäjänimi: käyttäjä
 	* Salasana: salasana
-		* salasanan turvallisuuden parantaminen työn alla
-
+* HUOMIO!!
+	* Juuri nyt sovelluksessa voi laittaa kirkoksi vain lukuja. Kirkkojen tietokanta on lisätty sovellukseen, mutta vierailujen ja kirkkojen tietokannan yhdistystä ei ole vielä toteutettu käyttäjän kannalta.
 ## Dokumentaatio
 
 * [User stories](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/user_stories.md)
