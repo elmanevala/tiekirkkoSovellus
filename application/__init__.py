@@ -47,7 +47,7 @@ try:
 except:
     pass
 
-# Reading the file kirkot.txt to churches table
+# Reading the file kirkot.txt to churches table.
 from application.churches.models import Church
 if Church.query.first() is None:
     file = open('kirkot.txt')
