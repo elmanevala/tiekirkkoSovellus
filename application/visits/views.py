@@ -33,6 +33,7 @@ def visits_create():
 @app.route("/visit", methods=["GET"])
 @login_required
 def visits_index():
+
     return render_template("visits/list.html", visits=Visit.query.filter(Visit.account_id == current_user.id))
 
 

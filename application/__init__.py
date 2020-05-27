@@ -23,7 +23,8 @@ from application.visits import views
 from application.auth import models
 from application.auth import views
 
-
+from application.churches import models
+from application.churches import views
 
 from application.auth.models import User
 from os import urandom
@@ -41,8 +42,18 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 
-
 try: 
     db.create_all()
 except:
     pass
+
+# Reading the file kirkot.txt to churches table
+from application.churches.models import Church
+if Church.query.first() is None:
+    file = open('kirkot.txt')
+    Lines = file.readlines()
+    for line in Lines:
+        town_church = line.split(", ")
+        c = Church(town_church[1][:-1], town_church[0])
+        db.session().add(c)
+        db.session().commit()
