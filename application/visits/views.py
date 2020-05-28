@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 
 from application.visits.models import Visit
 from application.visits.forms import VisitForm, EditForm
+from application.churches.models import Church
 from application import db, app
 
 
@@ -19,8 +20,13 @@ def visits_create():
 
     if not form.validate():
         return render_template("visits/new.html", form=form)
+    if  Church.query.filter(Church.church==form.church.data).first() is None:
+        return render_template("visits/new.html", form=form, error="Kirkkoa ei tietokannassa")
 
-    v = Visit(form.church.data, form.comment.data)
+    c = Church.query.filter(Church.church==form.church.data).first()
+    print("nimi: " + c.church)
+
+    v = Visit(c.id, form.comment.data)
     v.tourguide = form.tourguide.data
     v.account_id = current_user.id
 
@@ -65,7 +71,6 @@ def visits_edit_entry(visit_id):
 
     form = EditForm(request.form)
 
-    # Tähän validoinnit, kunhan vain kerkiän
     if not form.validate():
         return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=form)
 
