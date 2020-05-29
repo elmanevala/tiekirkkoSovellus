@@ -1,6 +1,7 @@
 from application import db
 from application.models import Base
 
+from flask_login import current_user
 
 from sqlalchemy.sql import text
 
@@ -20,18 +21,16 @@ class Visit(Base):
         self.tourguide = False
 
     @staticmethod
-    def name_comment_tourguide(visit_id):
-        stmt = text("SELECT Church.church, Visit.comment, Visit.tourguide FROM Visit"
-                    " LEFT JOIN Church ON Visit.church_id = Church.id"
-                    " WHERE (Visit.id IS visit_id)")
+    def name_comment_tourguide():
+
+        stmt = text("SELECT Church.church, Visit.comment, Visit.tourguide, Visit.id FROM Visit"
+                    " LEFT JOIN Church ON Visit.church_id = Church.id AND Visit.account_id = :user").params(user=current_user.id)
 
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append(row[0])
-            response.append(row[1])
-            response.append(row[2])
+            response.append({"church":row[0], "comment":row[1], "tourguide":row[2], "id":row[3]})
 
         return response
 

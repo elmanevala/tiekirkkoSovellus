@@ -40,7 +40,7 @@ def visits_create():
 @login_required
 def visits_index():
 
-    return render_template("visits/list.html", visits=Visit.query.filter(Visit.account_id == current_user.id))
+    return render_template("visits/list.html", visits=Visit.name_comment_tourguide())
 
 
 @app.route("/visits/edit/<visit_id>/tourguide", methods=["POST"])
