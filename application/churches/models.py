@@ -17,3 +17,4 @@ class Church(db.Model):
     def get_id(self):
         return self.id
 
+

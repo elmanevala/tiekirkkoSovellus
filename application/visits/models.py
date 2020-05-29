@@ -34,3 +34,5 @@ class Visit(Base):
             response.append(row[2])
 
         return response
+
+

@@ -62,7 +62,11 @@ def tourguide_set_present(visit_id):
 @app.route("/visits/edit/<visit_id>/", methods=["GET", "POST"])
 @login_required
 def visit_edit(visit_id):
-    return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm())
+
+    v = Visit.query.filter(Visit.id == visit_id).first()
+    visit_church = v.church_id
+
+    return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm(), church=Church.query.filter(Church.id==visit_church).first())
 
 
 @app.route("/visits/edit/<visit_id>/entry/", methods=["GET", "POST"])
