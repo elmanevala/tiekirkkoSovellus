@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table>
+    <tr>
+        <th>Kunta</th>
+        <th>Kirkkoja</th>
+        <th>Vierailuja kirkoissa yht</th>
+    </tr>
+    {% for town in towns %}
+    <tr>
+        <td>{{ town.town }}</td>
+        <td>{{ town.churches }}</td>
+        <td>{{ town.visits }}</td>
+        <td>
+            <form method="GET" action="{{ url_for('town_churchview', town_id=town.id) }}">
+                <input type="submit" value="Selaa kunnan kirkkoja" />
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

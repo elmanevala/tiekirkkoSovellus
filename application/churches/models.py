@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy.sql import text
 
 
 class Church(db.Model):
@@ -17,4 +18,19 @@ class Church(db.Model):
     def get_id(self):
         return self.id
 
+    @staticmethod
+    def town_churches_visits():
+
+        stmt = text("SELECT DISTINCT A.town AS town, "
+        "(SELECT COUNT(*) FROM Church B WHERE B.town=A.town) AS churches, "
+        "(SELECT COUNT(V.comment) FROM Church C LEFT JOIN Visit V ON C.id=V.church_id AND C.town=A.town) AS visits"
+        " FROM Church A")
+
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"town":row[0], "churches":row[1], "visits":row[2]})
+
+        return response
 
