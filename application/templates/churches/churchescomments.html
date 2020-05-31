@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table>
+    <tr>
+        <td> {{ town }} </td>
+    </tr>
+    {% for comment in comments %}
+    <tr>
+        <td>{{ comment.church }}</td>
+        <td>{{ comment.comment }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

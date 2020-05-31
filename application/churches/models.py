@@ -34,3 +34,19 @@ class Church(db.Model):
 
         return response
 
+    @staticmethod
+    def churches_comments(town):
+
+        stmt = text("SELECT C.town AS town, C.church AS church, "
+        "(SELECT V.comment  FROM Visit V JOIN Church ON Church.id=V.church_id AND Church.church=C.church) AS comment"
+        " FROM Church C WHERE C.town=:town").params(town=town)
+
+        res = db.engine.execute(stmt)
+
+        print("TÄÄLLÄLÄLÄLÄLÄLÄLÄ inceptionin lumikerros:)")
+
+        response = []
+        for row in res:
+            response.append({"town":row[0], "church":row[1], "comment":row[2]})
+
+        return response

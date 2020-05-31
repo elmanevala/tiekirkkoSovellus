@@ -13,7 +13,7 @@
         <td>{{ town.churches }}</td>
         <td>{{ town.visits }}</td>
         <td>
-            <form method="GET" action="{{ url_for('town_churchview', town_id=town.id) }}">
+            <form method="POST" action="{{ url_for('town_churchview', town_name=town.town) }}">
                 <input type="submit" value="Selaa kunnan kirkkoja" />
             </form>
         </td>

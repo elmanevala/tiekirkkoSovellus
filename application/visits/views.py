@@ -34,7 +34,7 @@ def visits_create():
     db.session().commit()
 
     return redirect(url_for("visits_index"))
-
+    
 
 @app.route("/visit", methods=["GET"])
 @login_required
