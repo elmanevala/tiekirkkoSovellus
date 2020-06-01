@@ -1,14 +1,27 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table>
-    <tr>
-        <td> {{ town }} </td>
-    </tr>
-    {% for comment in comments %}
-    <tr>
-        <td>{{ comment.church }}</td>
-    </tr>
-    {% endfor %}
+
+<table class="table">
+    <h1 class="h3 mb-3 font-weight-normal">{{ town }}</h1>
+    <thead>
+        <tr>
+            <th scope="col">Tiekirkko</th>
+            <th scope="col">Selaa</th>
+        </tr>
+    </thead>
+    {% for church in churches %}
+    <tbody>
+        <tr>
+            <th scope="row">{{ church.church }}</th>
+            <td>
+                <form method="POST" action="{{ url_for('church_comment', church=church.church, town_name=town) }}">
+                    <input type="submit" value="Selaa kirkon vierailuja" />
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
+
 {% endblock %}

@@ -14,4 +14,12 @@ def towns_index():
 @app.route("/churches/<town_name>/", methods=["GET", "POST"])
 @login_required
 def town_churchview(town_name):
-    return render_template("churches/churches.html", comments=Church.churches_in_town(town_name), town=town_name)
+    return render_template("churches/churches.html", churches=Church.churches_in_town(town_name), town=town_name)
+
+@app.route("/churches/<town_name>/<church>/", methods=["GET", "POST"])
+@login_required
+def church_comment(church, town_name):
+
+    kirkko = Church.query.filter(Church.church==church).first()
+    
+    return render_template("churches/church.html", comments=Church.church_comments(church), church=Church.query.filter(Church.church==church).first())

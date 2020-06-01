@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table class="table">
+    <h1 class="h3 mb-3 font-weight-normal">{{ church.church }}, {{ church.town }}</h1>
+    <thead>
+        <tr>
+            <th scope="col">Lisätty</th>
+            <th scope="col">Kommentti</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for comment in comments %}
+        <tr>
+            <td>{{ comment.date }}</td>
+            <td>{{ comment.comment }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}
