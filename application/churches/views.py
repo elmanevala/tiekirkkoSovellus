@@ -14,23 +14,4 @@ def towns_index():
 @app.route("/churches/<town_name>/", methods=["GET", "POST"])
 @login_required
 def town_churchview(town_name):
-
-    print(town_name)
-    print("TÄÄLLÄ!!")
-    print("TÄÄLLÄ!!")
-    print("TÄÄLLÄ!!")
-    print("TÄÄLLÄ!!")
-    print("TÄÄLLÄ!!")
-    print("TÄÄLLÄ!!")
-    print("TÄÄLLÄ!!")
-    print("TÄÄLLÄ!!")
-    print("TÄÄLLÄ!!")
-    print("TÄÄLLÄ!!")
-    
-
-    lolz = Church.churches_comments(town_name)
-
-    print("OHJAAJASSAAASAJLADHAFLJRHKJFCHASLKJDHF")
-    print(lolz)
-
-    return render_template("churches/churchescomments.html", comments=Church.churches_comments(town_name), town=town_name)
+    return render_template("churches/churches.html", comments=Church.churches_in_town(town_name), town=town_name)

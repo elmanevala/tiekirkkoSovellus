@@ -24,7 +24,9 @@ class Visit(Base):
     def name_comment_tourguide():
 
         stmt = text("SELECT Church.church, Visit.comment, Visit.tourguide, Visit.id FROM Visit"
-                    " LEFT JOIN Church ON Visit.church_id = Church.id AND Visit.account_id = :user").params(user=current_user.id)
+                    " JOIN Church ON Visit.church_id = Church.id AND Visit.account_id = :user").params(user=current_user.id)
+
+
 
         res = db.engine.execute(stmt)
 
