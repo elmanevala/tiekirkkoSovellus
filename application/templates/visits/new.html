@@ -9,11 +9,16 @@
         {{ form.church.label }}
       </td>
       <td>
-        {{ form.church }}
+        <input type="text" id="church" name="church" list="church_list" placeholder="Kirkko">
+        <datalist id="church_list">churches
+          {% for church in churches %}
+          <option>{{ church }}</option>
+          {% endfor %}
+        </datalist>
       </td>
+
       <td>
         {{ error }}
-        <!Tähän tulevaisuudessa tarkistus, että kirkko on olemassa>
       </td>
     </tr>
     <tr>

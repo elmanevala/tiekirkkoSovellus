@@ -10,7 +10,14 @@ from application import db, app
 @app.route("/visits/new/")
 @login_required
 def visits_form():
-    return render_template("visits/new.html", form=VisitForm())
+
+    allData = Church.query.all()
+
+    churches = []
+    for church in allData:
+        churches.append(church.church)
+
+    return render_template("visits/new.html", churches=churches, form=VisitForm())
 
 
 @app.route("/visits/", methods=["POST"])
@@ -18,12 +25,19 @@ def visits_form():
 def visits_create():
     form = VisitForm(request.form)
 
+    church = request.form.get("church")
+
     if not form.validate():
         return render_template("visits/new.html", form=form)
-    if  Church.query.filter(Church.church==form.church.data).first() is None:
-        return render_template("visits/new.html", form=form, error="Kirkkoa ei tietokannassa")
+    if Church.query.filter(Church.church == church).first() is None:
+        allData = Church.query.all()
 
-    c = Church.query.filter(Church.church==form.church.data).first()
+        churches = []
+        for church in allData:
+            churches.append(church.church)
+        return render_template("visits/new.html", form=form, error="Kirkkoa ei tietokannassa", churches=churches)
+
+    c = Church.query.filter(Church.church == church).first()
     print("nimi: " + c.church)
 
     v = Visit(c.id, form.comment.data)
@@ -34,7 +48,7 @@ def visits_create():
     db.session().commit()
 
     return redirect(url_for("visits_index"))
-    
+
 
 @app.route("/visit", methods=["GET"])
 @login_required
@@ -66,7 +80,7 @@ def visit_edit(visit_id):
     v = Visit.query.filter(Visit.id == visit_id).first()
     visit_church = v.church_id
 
-    return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm(), church=Church.query.filter(Church.id==visit_church).first())
+    return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm(), church=Church.query.filter(Church.id == visit_church).first())
 
 
 @app.route("/visits/edit/<visit_id>/entry/", methods=["GET", "POST"])
