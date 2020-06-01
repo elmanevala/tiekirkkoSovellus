@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
 {{ error }}
 <form method="POST" action="{{ url_for('auth_login') }}">
+    <h1 class="h3 mb-3 font-weight-normal">Kirjaudu sisään</h1>
     <table>
         <tr>
             <td>
@@ -22,7 +24,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Kirjaudu" />
+                <button type="submit" class="btn btn-primary">Kirjaudu</button>
             </td>
         </tr>
 </form>

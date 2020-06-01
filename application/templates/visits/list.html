@@ -1,28 +1,37 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table>
-  <tr>
-    <th>Kirkko</th>
-    <th>Kommentti</th>
-    <th>Opas paikalla</th>
-  </tr>
+
+<table class="table">
+  <h1 class="h3 mb-3 font-weight-normal">Omat vierailut</h1>
+  <thead>
+    <tr>
+      <th scope="col">Kirkko</th>
+      <th scope="col">Kommentti</th>
+      <th scope="col">Opas paikalla</th>
+      <th scope="col">Muokkaa</th>
+      <th scope="col">Poista</th>
+    </tr>
+  </thead>
   {% for visit in visits %}
-  <tr>
-    <td>{{ visit.church }}</td>
-    <td>{{ visit.comment }}</td>
-    <td>{{ visit.tourguide }}</td>
-    <td>
-      <form method="POST" action="{{ url_for('visit_edit', visit_id=visit.id) }}">
-        <input type="submit" value="Muokkaa" />
-      </form>
-    </td>
-    <td>
-      <form method="POST" action="{{ url_for('visit_delete', visit_id=visit.id) }}">
-        <input type="submit" value="Poista vierailu" />
-      </form>
-    </td>
-  </tr>
-  {% endfor %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ visit.church }}</th>
+      <td>{{ visit.comment }}</td>
+      <td>{{ visit.tourguide }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('visit_edit', visit_id=visit.id) }}">
+          <input type="submit" value="Muokkaa" />
+        </form>
+      </td>
+      <td>
+        <form method="POST" action="{{ url_for('visit_delete', visit_id=visit.id) }}">
+          <input type="submit" value="Poista vierailu" />
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
+
 {% endblock %}

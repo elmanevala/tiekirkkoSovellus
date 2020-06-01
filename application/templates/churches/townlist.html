@@ -1,15 +1,21 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<table>
-    <tr>
-        <th>Kunta</th>
-        <th>Kirkkoja</th>
-        <th>Vierailuja kirkoissa yht</th>
-    </tr>
+
+<table class="table">
+    <h1 class="h3 mb-3 font-weight-normal">Kirkot kunnittain</h1>
+    <thead>
+      <tr>
+        <th scope="col">Kunta</th>
+        <th scope="col">Tiekirkkoja</th>
+        <th scope="col">Vierailuja yhteensä</th>
+        <th scope="col">Selaa kirkkoja</th>
+      </tr>
+    </thead>
     {% for town in towns %}
-    <tr>
-        <td>{{ town.town }}</td>
+    <tbody>
+      <tr>
+        <th scope="row">{{ town.town }}</th>
         <td>{{ town.churches }}</td>
         <td>{{ town.visits }}</td>
         <td>
@@ -17,7 +23,9 @@
                 <input type="submit" value="Selaa kunnan kirkkoja" />
             </form>
         </td>
-    </tr>
-    {% endfor %}
-</table>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
 {% endblock %}
