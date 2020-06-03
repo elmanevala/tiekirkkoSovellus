@@ -54,9 +54,9 @@
 
       </ul>
 
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Etsi kirkkoa" aria-label="Search" name="church"
-          list="church_list">
+      <form method="POST" action="{{ url_for('search') }}" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Etsi kirkkoa" aria-label="Search"
+          name="church_search" list="church_list">
         <datalist id="church_list">churches
           {% for church in churches %}
           <option>{{ church }}</option>

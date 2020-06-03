@@ -12,7 +12,6 @@ def index():
     churches = []
     for church in allData:
         churches.append(church.church)
-        print("YOLO!!!")
-        print("kirkko: " + church.church)
 
-    return render_template("index.html", churches=Church.query.all())
+
+    return render_template("index.html", churches=churches)
