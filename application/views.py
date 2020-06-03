@@ -1,6 +1,18 @@
 from flask import render_template
-from application import app
+from application import app, db
+
+from application.churches.models import Church
+
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+
+    allData = Church.query.all()
+
+    churches = []
+    for church in allData:
+        churches.append(church.church)
+        print("YOLO!!!")
+        print("kirkko: " + church.church)
+
+    return render_template("index.html", churches=Church.query.all())

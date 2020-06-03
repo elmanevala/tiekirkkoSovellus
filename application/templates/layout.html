@@ -53,16 +53,28 @@
         {% endif %}
 
       </ul>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Etsi kirkkoa" aria-label="Search" name="church"
+          list="church_list">
+        <datalist id="church_list">churches
+          {% for church in churches %}
+          <option>{{ church }}</option>
+          {% endfor %}
+        </datalist>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Hae</button>
+      </form>
+
     </div>
   </nav>
 
 
   <main role="main" class="container">
-  {% block body %}
-  <p>
-    Content.
-  </p>
-  {% endblock %}
+    {% block body %}
+    <p>
+      Content.
+    </p>
+    {% endblock %}
   </main>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

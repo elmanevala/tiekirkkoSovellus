@@ -19,7 +19,4 @@ def town_churchview(town_name):
 @app.route("/churches/<town_name>/<church>/", methods=["GET", "POST"])
 @login_required
 def church_comment(church, town_name):
-
-    kirkko = Church.query.filter(Church.church==church).first()
-    
     return render_template("churches/church.html", comments=Church.church_comments(church), church=Church.query.filter(Church.church==church).first())
