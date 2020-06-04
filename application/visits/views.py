@@ -80,11 +80,14 @@ def visit_edit(visit_id):
 @app.route("/visits/edit/<visit_id>/entry/", methods=["GET", "POST"])
 @login_required
 def visits_edit_entry(visit_id):
-
+    v1=Visit.query.filter(Visit.id==visit_id).first()
+    church_id = v1.church_id
+    
     form = EditForm(request.form)
 
     if not form.validate():
-        return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=form)
+        return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=form, church=Church.query.filter(Church.id == church_id).first())
+
 
     v = Visit.query.get(visit_id)
     v.comment = form.comment.data

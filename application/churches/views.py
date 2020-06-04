@@ -26,4 +26,8 @@ def church_comment(church, town_name):
 def search():
     church = request.form.get("church_search")
 
+    if Church.query.filter(Church.church==church).first() is None:
+        return render_template("churches/church.html", comments=Church.church_comments(church), church={"church":"Kirkkoa ei tietokannassa", "town":"tarkista hakusana"})
+
+
     return render_template("churches/church.html", comments=Church.church_comments(church), church=Church.query.filter(Church.church==church).first())
