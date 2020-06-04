@@ -11,13 +11,7 @@ from application import db, app
 @login_required
 def visits_form():
 
-    allData = Church.query.all()
-
-    churches = []
-    for church in allData:
-        churches.append(church.church)
-
-    return render_template("visits/new.html", churches=churches, form=VisitForm())
+    return render_template("visits/new.html", form=VisitForm())
 
 
 @app.route("/visits/", methods=["POST"])
@@ -35,7 +29,7 @@ def visits_create():
         churches = []
         for church in allData:
             churches.append(church.church)
-        return render_template("visits/new.html", form=form, error="Kirkkoa ei tietokannassa", churches=churches)
+        return render_template("visits/new.html", form=form, error="Kirkkoa ei tietokannassa")
 
     c = Church.query.filter(Church.church == church).first()
     print("nimi: " + c.church)
