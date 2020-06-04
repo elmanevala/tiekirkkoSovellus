@@ -18,3 +18,9 @@ class RegistrationForm(FlaskForm):
 
     class Meta:
         csrf = False
+
+class NameForm(FlaskForm):
+    name = StringField("Nimi", [validators.Length(min=3, message='Nimi vähintään kolme merkkiä pitkä')], render_kw={"placeholder": "nimi"})
+    
+    class Meta:
+        csrf = False

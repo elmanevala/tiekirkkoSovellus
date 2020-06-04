@@ -22,7 +22,6 @@ def church_comment(church, town_name):
     return render_template("churches/church.html", comments=Church.church_comments(church), church=Church.query.filter(Church.church==church).first())
 
 @app.route("/churches/search", methods=["GET", "POST"])
-@login_required
 def search():
     church = request.form.get("church_search")
 
@@ -31,3 +30,5 @@ def search():
 
 
     return render_template("churches/church.html", comments=Church.church_comments(church), church=Church.query.filter(Church.church==church).first())
+
+

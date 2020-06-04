@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{{ error }}
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Nykyiset tiedot</th>
+            <th scope="col">Muokkaa</th>
+            <th scope="col"> </th>
+            <th scope="col">Päivitä</th>
+        </tr>
+    </thead>
+    <tr>
+        <form method="POST" action="{{ url_for('update_name', name=user.name) }}">
+            <td>
+                {{ user.name }}
+            </td>
+            <td>
+                <input type="text" name="name" placeholder="uusi nimi">
+            </td>
+            <td></td>
+            <td colspan="2">
+                <input type="submit" value="Päivitä nimi" />
+            </td>
+        </form>
+    </tr>
+    <tr>
+        <td>
+            {{ user.username }}
+        </td>
+        <td>
+            {{ form.username }}
+        </td>
+        <td></td>
+        <td colspan="2">
+            <input type="submit" value="Päivitä käyttäjänimi" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ form.password.label }}
+        </td>
+        <td>
+            {{ form.password }}
+        <td>{{ form.passwordcheck }}</td>
+        </td>
+        <td colspan="2">
+            <input type="submit" value="Päivitä salasana" />
+        </td>
+    </tr>
+    {% endblock %}
