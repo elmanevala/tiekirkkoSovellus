@@ -43,6 +43,8 @@ def auth_newUser():
 
     if not form.validate():
         return render_template("auth/registration.html", form=form)
+    if User.query.filter(User.username == form.username.data).first() is not None:
+        return render_template("auth/registration.html", form=form, dataerror="Käyttäjänimi varattu")
 
     u = User(form.name.data, form.username.data, form.password.data)
 
@@ -63,13 +65,28 @@ def myinfo():
 @login_required
 def update_name(name):
 
-    ## Koska yksittäisiin muutoksii ei voi käyttä wtf-kaavaketta, teen tässä myöhemmin oman validoinnin
+    if len(request.form.get("name")) < 3:
+        return render_template("auth/myinfo.html", form=RegistrationForm(), nameerror="Nimen on oltava vähintään kolme merkkiä", user=User.query.filter(User.id == current_user.id).first())
+
     u = User.query.filter(User.id == current_user.id).first()
     u.name = request.form.get("name")
 
-    print("!!!!!!!!!!")
-    print("uusi nimi: " + u.name)
-    print("!!!!!!!!!!")
+    db.session().add(u)
+    db.session().commit()
+
+    return redirect(url_for("myinfo"))
+
+@app.route("/auth/myinfo/edit/<username>", methods=["POST", "GET"])
+@login_required
+def update_username(username):
+
+    if len(request.form.get("username")) < 3:
+        return render_template("auth/myinfo.html", form=RegistrationForm(), usernameerror="Käyttäjänimen on oltava vähintään kolme merkkiä", user=User.query.filter(User.id == current_user.id).first())
+    if  User.query.filter(User.username == request.form.get("username")).first() is not None:
+        return render_template("auth/myinfo.html", form=RegistrationForm(), usernameerror="Käyttäjänimi varattu", user=User.query.filter(User.id == current_user.id).first())
+    
+    u = User.query.filter(User.id == current_user.id).first()
+    u.username = request.form.get("username")
 
     db.session().add(u)
     db.session().commit()

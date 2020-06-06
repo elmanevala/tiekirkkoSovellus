@@ -19,23 +19,26 @@
             <td>
                 <input type="text" name="name" placeholder="uusi nimi">
             </td>
-            <td></td>
+            <td>{{ nameerror }}</td>
             <td colspan="2">
                 <input type="submit" value="Päivitä nimi" />
             </td>
         </form>
     </tr>
     <tr>
-        <td>
-            {{ user.username }}
-        </td>
-        <td>
-            {{ form.username }}
-        </td>
-        <td></td>
-        <td colspan="2">
-            <input type="submit" value="Päivitä käyttäjänimi" />
-        </td>
+        <form method="POST" action="{{ url_for('update_username', username=user.username) }}">
+            <td>
+                {{ user.username }}
+            </td>
+            </td>
+            <td>
+                <input type="text" name="username" placeholder="uusi käyttäjänimi">
+            </td>
+            <td>{{ usernameerror }}</td>
+            <td colspan="2">
+                <input type="submit" value="Päivitä käyttäjänimi" />
+            </td>
+        </form>
     </tr>
     <tr>
         <td>

@@ -58,7 +58,6 @@ class Church(db.Model):
 
         response = []
         for row in res:
-            response.append({"comment": row[0]})
-            response.append({"date": row[1]})
+            response.append({"comment": row[0], "date": row[1]})
             
         return response
