@@ -3,7 +3,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 
 from application import app, db
 from application.auth.models import User
-from application.auth.forms import LoginForm, RegistrationForm
+from application.auth.forms import LoginForm, RegistrationForm, PasswordForm
 
 
 @app.route("/auth/login", methods=["GET", "POST"])
@@ -58,7 +58,7 @@ def auth_newUser():
 @login_required
 def myinfo():
 
-    return render_template("auth/myinfo.html", form=RegistrationForm(), user=User.query.filter(User.id == current_user.id).first())
+    return render_template("auth/myinfo.html", form=PasswordForm(), user=User.query.filter(User.id == current_user.id).first())
 
 
 @app.route("/auth/myinfo/<name>", methods=["POST", "GET"])
@@ -66,7 +66,7 @@ def myinfo():
 def update_name(name):
 
     if len(request.form.get("name")) < 3:
-        return render_template("auth/myinfo.html", form=RegistrationForm(), nameerror="Nimen on oltava vähintään kolme merkkiä", user=User.query.filter(User.id == current_user.id).first())
+        return render_template("auth/myinfo.html", form=PasswordForm(), nameerror="Nimen on oltava vähintään kolme merkkiä", user=User.query.filter(User.id == current_user.id).first())
 
     u = User.query.filter(User.id == current_user.id).first()
     u.name = request.form.get("name")
@@ -76,17 +76,35 @@ def update_name(name):
 
     return redirect(url_for("myinfo"))
 
+
 @app.route("/auth/myinfo/edit/<username>", methods=["POST", "GET"])
 @login_required
 def update_username(username):
 
     if len(request.form.get("username")) < 3:
-        return render_template("auth/myinfo.html", form=RegistrationForm(), usernameerror="Käyttäjänimen on oltava vähintään kolme merkkiä", user=User.query.filter(User.id == current_user.id).first())
-    if  User.query.filter(User.username == request.form.get("username")).first() is not None:
-        return render_template("auth/myinfo.html", form=RegistrationForm(), usernameerror="Käyttäjänimi varattu", user=User.query.filter(User.id == current_user.id).first())
-    
+        return render_template("auth/myinfo.html", form=PasswordForm(), usernameerror="Käyttäjänimen on oltava vähintään kolme merkkiä", user=User.query.filter(User.id == current_user.id).first())
+    if User.query.filter(User.username == request.form.get("username")).first() is not None:
+        return render_template("auth/myinfo.html", form=PasswordForm(), usernameerror="Käyttäjänimi varattu", user=User.query.filter(User.id == current_user.id).first())
+
     u = User.query.filter(User.id == current_user.id).first()
     u.username = request.form.get("username")
+
+    db.session().add(u)
+    db.session().commit()
+
+    return redirect(url_for("myinfo"))
+
+
+@app.route("/auth/myinfo/editpassword", methods=["POST", "GET"])
+@login_required
+def update_password():
+    form = PasswordForm(request.form)
+
+    if not form.validate():
+            return render_template("auth/myinfo.html", form=form, user=current_user)
+
+    u = User.query.filter(User.id == current_user.id).first()
+    u.password = form.password.data
 
     db.session().add(u)
     db.session().commit()

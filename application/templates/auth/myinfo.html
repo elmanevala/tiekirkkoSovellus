@@ -5,13 +5,13 @@
 <table>
     <thead>
         <tr>
-            <th scope="col">Nykyiset tiedot</th>
-            <th scope="col">Muokkaa</th>
             <th scope="col"> </th>
-            <th scope="col">Päivitä</th>
+            <th scope="col">Nykyiset tiedot</th>
+            <th scope="col">Päivitä </th>
         </tr>
     </thead>
     <tr>
+        <td>Nimi</td>
         <form method="POST" action="{{ url_for('update_name', name=user.name) }}">
             <td>
                 {{ user.name }}
@@ -26,6 +26,7 @@
         </form>
     </tr>
     <tr>
+        <td>Käyttäjänimi</td>
         <form method="POST" action="{{ url_for('update_username', username=user.username) }}">
             <td>
                 {{ user.username }}
@@ -41,15 +42,21 @@
         </form>
     </tr>
     <tr>
-        <td>
-            {{ form.password.label }}
-        </td>
-        <td>
-            {{ form.password }}
-        <td>{{ form.passwordcheck }}</td>
-        </td>
-        <td colspan="2">
-            <input type="submit" value="Päivitä salasana" />
-        </td>
+        <td>Muuta salasanaa</td>
+        <form method="POST" action="{{ url_for('update_password') }}">
+            <td>
+                {{ form.password }}
+            <td>{{ form.passwordcheck }}</td>
+            </td>
+            <td colspan="2">
+                <input type="submit" value="Päivitä salasana" />
+            </td>
+
+    </tr>
+    <tr>
+        {% for error in form.password.errors %}
+        <td>{{ error }}</td>
+        {% endfor %}
+        </form>
     </tr>
     {% endblock %}

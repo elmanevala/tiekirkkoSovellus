@@ -19,8 +19,9 @@ class RegistrationForm(FlaskForm):
     class Meta:
         csrf = False
 
-class NameForm(FlaskForm):
-    name = StringField("Nimi", [validators.Length(min=3, message='Nimi vähintään kolme merkkiä pitkä')], render_kw={"placeholder": "nimi"})
+class PasswordForm(FlaskForm):
+    password = PasswordField("Salasana", [validators.EqualTo('passwordcheck', message='Salasanat eivät täsmää')], render_kw={"placeholder": "salasana"}, )
+    passwordcheck = PasswordField("Salasana uudestaan",render_kw={"placeholder": "salasana uudestaan"})
     
     class Meta:
         csrf = False
