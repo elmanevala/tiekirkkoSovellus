@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fin" lang="fin">
 
 <head>
   <meta charset="utf-8">
@@ -58,7 +58,7 @@
       </ul>
 
       <form method="POST" action="{{ url_for('search') }}" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Etsi kirkkoa" aria-label="Search"
+        <input class="form-control mr-sm-2" type="text" placeholder="Etsi kirkkoa" aria-label="Etsi kirkkoa" label="Etsi kirkkoa"
           name="church_search" list="church_list">
         <datalist id="church_list">churches
           {% for church in churches %}

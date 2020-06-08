@@ -18,7 +18,11 @@
     <tr>
       <th scope="row">{{ visit.church }}</th>
       <td>{{ visit.comment }}</td>
-      <td>{{ visit.tourguide }}</td>
+      {% if visit.tourguide %}
+      <td> &#x2714; </td>
+      {% else %}
+      <td> &#x274C; </td>
+      {% endif %}
       <td>
         <form method="POST" action="{{ url_for('visit_edit', visit_id=visit.id) }}">
           <input type="submit" value="Muokkaa" />
