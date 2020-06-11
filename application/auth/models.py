@@ -27,3 +27,15 @@ class User(Base):
 
     def is_authenticated(self):
         return True
+
+    def roles(self):
+        if (self.id == 1):
+            print("!!!!!!!!!!!!!")
+            print("olen admin")
+            print("!!!!!!!!!!!!!")
+            return ["ADMIN"]
+        else:
+            print("!!!!!!!!!!!!!")
+            print("olen tunkero")
+            print("!!!!!!!!!!!!!")
+            return ["ANY"]

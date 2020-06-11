@@ -22,9 +22,6 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         {% if current_user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
-        </li>
         {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('auth_login') }}">Kirjaudu</a>
@@ -44,9 +41,11 @@
             <a class="dropdown-item" href="{{ url_for('towns_index') }}">Selaa kirkkoja kunnittain</a>
             <a class="dropdown-item" href="{{ url_for('visits_form') }}">Lisää uusi vierailu</a>
             {% if current_user.is_authenticated %}
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ url_for('myinfo') }}">Omat tiedot</a>
-            {% endif %}
+            <a class="dropdown-item" href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
           </div>
+          {% endif %}
         </li>
 
         {% if current_user.is_authenticated %}

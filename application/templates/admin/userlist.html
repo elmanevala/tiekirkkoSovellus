@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<table class="table">
+    <h1 class="h3 mb-3 font-weight-normal">Käyttäjät</h1>
+    <thead>
+      <tr>
+        <th scope="col">Käyttäjänimi</th>
+        <th scope="col">Tili luotu</th>
+        <th scope="col">Tee käyttäjästä opas</th>
+      </tr>
+    </thead>
+    {% for user in users %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ user.username }}</th>
+        <td>{{ user.date_created }}</td>
+        <td>
+            <form method="POST" action="">
+                <input type="submit" value="Lisää käyttäjälle kirkkoja" />
+            </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
