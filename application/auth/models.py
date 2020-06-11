@@ -10,6 +10,7 @@ class User(Base):
     password = db.Column(db.String(144), nullable=False)
 
     visits = db.relationship("Visit", backref='account', lazy=True)
+    tourguides = db.relationship("Tourguide", backref='account', lazy=True)
 
     def __init__(self, name, username, password):
         self.name = name
@@ -30,12 +31,6 @@ class User(Base):
 
     def roles(self):
         if (self.id == 1):
-            print("!!!!!!!!!!!!!")
-            print("olen admin")
-            print("!!!!!!!!!!!!!")
             return ["ADMIN"]
         else:
-            print("!!!!!!!!!!!!!")
-            print("olen tunkero")
-            print("!!!!!!!!!!!!!")
             return ["ANY"]

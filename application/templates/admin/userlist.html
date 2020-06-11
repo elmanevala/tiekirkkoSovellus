@@ -17,7 +17,7 @@
         <th scope="row">{{ user.username }}</th>
         <td>{{ user.date_created }}</td>
         <td>
-            <form method="POST" action="">
+            <form method="POST" action="{{ url_for('add_tourguide', user_id=user.id) }}">
                 <input type="submit" value="Lisää käyttäjälle kirkkoja" />
             </form>
         </td>

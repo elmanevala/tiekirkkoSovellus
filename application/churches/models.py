@@ -9,6 +9,7 @@ class Church(db.Model):
     town = db.Column(db.String(144), nullable=False)
 
     visits = db.relationship("Visit", backref='Church', lazy=True)
+    tourguides = db.relationship("Tourguide", backref='Church', lazy=True)
 
     def __init__(self, church, town):
         self.church = church

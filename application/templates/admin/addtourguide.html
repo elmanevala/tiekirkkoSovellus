@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1 class="h3 mb-3 font-weight-normal">Lisää oppaalle {{ user.username }} kirkkoja</h1>
+<table>
+    <tr>
+        <form method="POST" action="{{ url_for('tourguide_church', user_id=user.id) }}">
+        <td>
+
+            <input type="text" id="church" name="church" list="church_list" placeholder="Kirkko">
+            <datalist id="church_list">
+                {% for church in churches %}
+                <option>{{ church }}</option>
+                {% endfor %}
+            </datalist>
+        </td>
+        <td>
+            <input type="submit" value="Lisää oppaalle kirkko" />
+        </td>
+        </form>
+    </tr>
+</table>
+
+{% endblock %}

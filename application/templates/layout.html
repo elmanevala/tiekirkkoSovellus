@@ -48,6 +48,18 @@
           {% endif %}
         </li>
 
+        {% if current_user.is_authenticated and current_user.id==1 %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Admin-valikko
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ url_for('admin_users') }}">Käyttäjät</a>
+          </div>
+        </li>
+        {% endif %}
+
         {% if current_user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Hei, {{ current_user.name }}!</a>

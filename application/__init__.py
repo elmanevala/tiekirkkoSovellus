@@ -59,6 +59,7 @@ from application.auth import views
 from application.churches import models
 from application.churches import views
 
+from application.admin import models
 from application.admin import views
 
 

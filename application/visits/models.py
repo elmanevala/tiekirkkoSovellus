@@ -26,14 +26,11 @@ class Visit(Base):
         stmt = text("SELECT Church.church, Visit.comment, Visit.tourguide, Visit.id FROM Visit"
                     " JOIN Church ON Visit.church_id = Church.id AND Visit.account_id = :user").params(user=current_user.id)
 
-
-
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"church":row[0], "comment":row[1], "tourguide":row[2], "id":row[3]})
+            response.append(
+                {"church": row[0], "comment": row[1], "tourguide": row[2], "id": row[3]})
 
         return response
-
-

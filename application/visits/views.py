@@ -32,7 +32,7 @@ def visits_create():
         return render_template("visits/new.html", form=form, error="Kirkkoa ei tietokannassa")
 
     c = Church.query.filter(Church.church == church).first()
-    print("nimi: " + c.church)
+
 
     v = Visit(c.id, form.comment.data)
     v.tourguide = form.tourguide.data
