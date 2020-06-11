@@ -27,6 +27,10 @@ def tourguide_church(user_id):
 
     church_name = request.form.get("church")
     church = Church.query.filter(Church.church == church_name).first()
+
+    if church is None:
+        return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), error="Kirkkoa ei tietokannassa")
+
     church_id = church.id
 
     tg = Tourguide(user_id, church_id)

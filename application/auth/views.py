@@ -45,8 +45,16 @@ def auth_newUser():
         return render_template("auth/registration.html", form=form)
     if User.query.filter(User.username == form.username.data).first() is not None:
         return render_template("auth/registration.html", form=form, dataerror="Käyttäjänimi varattu")
+    
+    users = User.query.all()
+    user_count = len(users)
 
-    u = User(form.name.data, form.username.data, form.password.data)
+    if (user_count == 0):
+        admin = True
+    else:
+        admin = False
+
+    u = User(form.name.data, form.username.data, form.password.data, admin)
 
     db.session().add(u)
     db.session().commit()

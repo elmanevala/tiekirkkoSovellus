@@ -8,14 +8,16 @@ class User(Base):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    admin = db.Column(db.Boolean, default=False, nullable=False)
 
     visits = db.relationship("Visit", backref='account', lazy=True)
     tourguides = db.relationship("Tourguide", backref='account', lazy=True)
 
-    def __init__(self, name, username, password):
+    def __init__(self, name, username, password, admin):
         self.name = name
         self.username = username
         self.password = password
+        self.admin = admin
   
     def get_id(self):
         return self.id
@@ -30,7 +32,7 @@ class User(Base):
         return True
 
     def roles(self):
-        if (self.id == 1):
+        if (self.admin == True):
             return ["ADMIN"]
         else:
             return ["ANY"]
