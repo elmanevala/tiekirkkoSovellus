@@ -9,16 +9,21 @@ Suomessa on 265 tiekirkkoa. Sovelluksen käyttäjät voivat kirjoittaa vierailui
 
 Admin-käyttäjä, joka voi muutta peruskäyttäjiä oppaiksi:
 ```
- Käyttäjänimi: käyttäjä
+ Käyttäjänimi: admin
+ Salasana: salasana
+```
+Opas, joka voi merkata kuinka monta vierailijaa kävi tänään:
+```
+ Käyttäjänimi: opas
  Salasana: salasana
 ```
 Peruskäyttäjä:
 ```
- Käyttäjänimi: pressa1
- Salasana: salis
+ Käyttäjänimi: peruskäyttäjä
+ Salasana: salasana
 ```
 
-* HUOM: Oppaille ei vielä ole toiminnallisuuksia.
+* HUOM: Oppaiden kävijämäärien lisäyksiä ei ole vielä validoitu, joten "vääristä" syötteistä tulee virhe.
 
 
 ## Dokumentaatio
