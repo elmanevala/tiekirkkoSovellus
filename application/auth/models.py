@@ -1,6 +1,8 @@
 from application import db
 from application.models import Base
 
+from application.admin.models import Tourguide
+
 class User(Base):
 
     __tablename__ = "account"
@@ -31,8 +33,16 @@ class User(Base):
     def is_authenticated(self):
         return True
 
+    def is_tourguide(self):
+        if Tourguide.query.filter(Tourguide.user_id==self.id).first() is None:
+            return False
+        else:
+            return True
+
     def roles(self):
         if (self.admin == True):
             return ["ADMIN"]
+        elif (User.is_tourguide(self)):
+            return["GUIDE"]
         else:
             return ["ANY"]

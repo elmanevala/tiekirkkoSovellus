@@ -62,3 +62,19 @@ class Church(db.Model):
             response.append({"comment": row[0], "date": row[1]})
             
         return response
+
+    @staticmethod
+    def tourguide_churches(guide_id):
+
+        stmt = text("SELECT DISTINCT C.church FROM Church C JOIN Tourguide T ON C.id=T.church_id AND T.user_id=:guide_id").params(
+            guide_id=guide_id)
+
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"church": row[0]})
+            
+        return response
+
+    

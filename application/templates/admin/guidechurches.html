@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table class="table">
+    <h1 class="h3 mb-3 font-weight-normal">Opastettavat kirkot</h1>
+    <thead>
+      <tr>
+        <th scope="col">Kirkko</th>
+        <th scope="col">Lisää vierailijat tältä päivältä</th>
+      </tr>
+    </thead>
+    {% for church in churches %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ church.church }}</th>
+        <td>
+            <form method="POST" action="">
+                <input type="submit" value="Lisää" />
+            </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

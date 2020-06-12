@@ -38,3 +38,9 @@ def tourguide_church(user_id):
     db.session().commit()
 
     return render_template("admin/userlist.html", users=User.query.filter(User.id!=1))
+
+@app.route("/admin/guide/", methods=["GET", "POST"])
+@login_required(role="GUIDE")
+def guide_churches():
+
+    return render_template("admin/guidechurches.html", churches=Church.tourguide_churches(current_user.id))
