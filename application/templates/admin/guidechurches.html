@@ -14,7 +14,7 @@
       <tr>
         <th scope="row">{{ church.church }}</th>
         <td>
-            <form method="POST" action="">
+            <form method="POST" action="{{ url_for('guide_addvisitors', church_id=church.id)}}">
                 <input type="submit" value="Lisää" />
             </form>
         </td>

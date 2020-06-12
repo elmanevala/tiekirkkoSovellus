@@ -10,6 +10,7 @@ class Church(db.Model):
 
     visits = db.relationship("Visit", backref='Church', lazy=True)
     tourguides = db.relationship("Tourguide", backref='Church', lazy=True)
+    visitors = db.relationship("Visitors", backref='Church', lazy=True)
 
     def __init__(self, church, town):
         self.church = church
@@ -66,14 +67,14 @@ class Church(db.Model):
     @staticmethod
     def tourguide_churches(guide_id):
 
-        stmt = text("SELECT DISTINCT C.church FROM Church C JOIN Tourguide T ON C.id=T.church_id AND T.user_id=:guide_id").params(
+        stmt = text("SELECT DISTINCT C.church, C.id FROM Church C JOIN Tourguide T ON C.id=T.church_id AND T.user_id=:guide_id").params(
             guide_id=guide_id)
 
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"church": row[0]})
+            response.append({"church": row[0], "id": row[1]})
             
         return response
 

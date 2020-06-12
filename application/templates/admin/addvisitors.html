@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table class="table">
+    <h1 class="h3 mb-3 font-weight-normal">{{ church.church }}, {{church.town}}</h1>
+    <thead>
+        <tr>
+            <th scope="col">Päivämäärä: {{ date }}</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <form method="POST" action="{{ url_for('guide_create_stat', church_id=church.id)}}">
+            <tr>
+                <th>{{ form.visitors }}</th>
+                <td>
+                    <input type="submit" value="Lisää" />
+
+                </td>
+            </tr>
+        </form>
+        <tr>
+            {% for error in form.visitors.errors %}
+            <td>{{ error }}</td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
