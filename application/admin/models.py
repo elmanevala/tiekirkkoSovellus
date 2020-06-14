@@ -31,7 +31,7 @@ class Visitors(db.Model):
     @staticmethod
     def sum(user_id):
 
-        stmt = text("SELECT SUM(A.visitors) AS sum FROM Visitors A JOIN Tourguide T ON A.church_id==T.church_id AND T.user_id=:user_id").params(
+        stmt = text("SELECT SUM(A.visitors) AS sum FROM Visitors A JOIN Tourguide T ON A.church_id=T.church_id AND T.user_id=:user_id").params(
             user_id=user_id)
 
         res = db.engine.execute(stmt)
@@ -47,10 +47,10 @@ class Visitors(db.Model):
     def stats(user_id):
 
         stmt = text("SELECT C.church AS church, "
-        "(SELECT SUM(V.visitors) FROM Visitors V WHERE church_id == C.id) AS sum, "
-        "(SELECT AVG(V.visitors) FROM Visitors V WHERE church_id == C.id) AS avg, "
+        "(SELECT SUM(V.visitors) FROM Visitors V WHERE church_id = C.id) AS sum, "
+        "(SELECT AVG(V.visitors) FROM Visitors V WHERE church_id = C.id) AS avg, "
         "(SELECT COUNT(comment) FROM Visit WHERE Visit.church_id=C.id) AS comment_sum "
-        "FROM Church C JOIN Tourguide T ON T.church_id==C.id AND T.user_id=:user_id").params(
+        "FROM Church C JOIN Tourguide T ON T.church_id=C.id AND T.user_id=:user_id").params(
             user_id=user_id)
 
         res = db.engine.execute(stmt)
