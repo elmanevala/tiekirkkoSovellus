@@ -80,10 +80,6 @@ def guide_create_stat(church_id):
 @login_required(role="GUIDE")   
 def guide_view_stats():
 
-    visitor_sum=Visitors.sum(current_user.id)
-    print("!!!!!!!!!!!!!!!")
-    print("summa kaikista: " + str(visitor_sum))
-
     return render_template("admin/stats.html", visitor_sum=Visitors.sum(current_user.id), stats=Visitors.stats(current_user.id))
     
  

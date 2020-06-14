@@ -118,3 +118,16 @@ def update_password():
     db.session().commit()
 
     return redirect(url_for("myinfo"))
+
+@app.route("/auth/myinfo/deleteacoount", methods=["POST", "GET"])
+@login_required
+def update_deleteaccount():
+    delete = request.form.get("delete")
+
+    if delete:
+        User.query.filter(User.id == current_user.id).delete()
+        db.session().commit()
+        return redirect(url_for("auth_login"))
+
+    return redirect(url_for("myinfo"))
+

@@ -1,5 +1,5 @@
 from flask import redirect, url_for, render_template, request
-from flask_login import login_required, current_user
+from flask_login import login_required, current_user, LoginManager, login_manager
 
 from application.visits.models import Visit
 from application.visits.forms import VisitForm, EditForm
@@ -87,7 +87,9 @@ def visits_edit_entry(visit_id):
 
     if not form.validate():
         return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=form, church=Church.query.filter(Church.id == church_id).first())
-
+    if v1.account_id != current_user.id:
+        login_manager = LoginManager()
+        return login_manager.unauthorized()
 
     v = Visit.query.get(visit_id)
     v.comment = form.comment.data

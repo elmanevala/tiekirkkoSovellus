@@ -32,7 +32,7 @@
             <td>
                 {{ user.username }}
             </td>
-            
+
             <td>
                 <input type="text" name="username" placeholder="uusi käyttäjänimi">
             </td>
@@ -58,6 +58,16 @@
         {% for error in form.password.errors %}
         <td>{{ error }}</td>
         {% endfor %}
+        </form>
+    </tr>
+    <tr>
+        <form method="POST" action="{{ url_for('update_deleteaccount') }}">
+            <td><input type="checkbox" name="delete" checked>
+                <label for="delete">Poista tili</label>
+            </td>
+            <td>
+                <input type="submit" value="Poista" />
+            </td>
         </form>
     </tr>
     {% endblock %}
