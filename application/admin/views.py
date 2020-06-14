@@ -35,7 +35,13 @@ def tourguide_church(user_id):
 
     if church is None:
         return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), no_data_error="Kirkkoa ei tietokannassa")
-    if Tourguide.query.filter(Tourguide.church_id==church.id and Tourguide.user_id==user_id).first() is not None:
+    if Tourguide.query.filter(Tourguide.church_id==church.id, Tourguide.user_id==user_id).first() is not None:
+        print("tämä pitäisi olla user_id: " + str(user_id))
+        print("!!!!!!!! nyt menee joku mönkään!!")
+        opas = Tourguide.query.filter(Tourguide.church_id==church.id and Tourguide.user_id==user_id).first()
+        print("!!!!! käyttäjä: " + str(opas.user_id))
+        print("!!!!!!!! kirkko: " + str(opas.church_id))
+
         return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), in_table_error="Oppaalle on jo lisätty tämä kirkko")
 
     church_id = church.id
