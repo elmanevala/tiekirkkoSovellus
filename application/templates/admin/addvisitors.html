@@ -20,6 +20,7 @@
             </tr>
         </form>
         <tr>
+            <td>{{ in_table_error }}</td>
             {% for error in form.visitors.errors %}
             <td>{{ error }}</td>
             {% endfor %}

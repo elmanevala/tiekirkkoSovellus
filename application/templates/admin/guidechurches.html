@@ -18,6 +18,11 @@
                 <input type="submit" value="Lisää" />
             </form>
         </td>
+        <td>
+            <form method="POST" action="{{ url_for('church_admin_view', church=church.church)}}">
+                <input type="submit" value="Selaa kirkon kommentteja" />
+            </form>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

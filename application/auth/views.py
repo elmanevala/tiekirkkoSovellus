@@ -2,8 +2,13 @@ from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user, login_required, current_user
 
 from application import app, db
+
 from application.auth.models import User
+from application.visits.models import Visit
+from application.admin.models import Tourguide
+
 from application.auth.forms import LoginForm, RegistrationForm, PasswordForm
+
 
 
 @app.route("/auth/login", methods=["GET", "POST"])
@@ -119,12 +124,16 @@ def update_password():
 
     return redirect(url_for("myinfo"))
 
-@app.route("/auth/myinfo/deleteacoount", methods=["POST", "GET"])
+@app.route("/auth/myinfo/deleteaccount", methods=["POST", "GET"])
 @login_required
 def update_deleteaccount():
     delete = request.form.get("delete")
 
     if delete:
+        
+        Visit.query.filter(Visit.account_id==current_user.id).delete()
+        Tourguide.query.filter(Tourguide.user_id==current_user.id).delete()
+
         User.query.filter(User.id == current_user.id).delete()
         db.session().commit()
         return redirect(url_for("auth_login"))

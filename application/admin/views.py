@@ -34,7 +34,9 @@ def tourguide_church(user_id):
     church = Church.query.filter(Church.church == church_name).first()
 
     if church is None:
-        return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), error="Kirkkoa ei tietokannassa")
+        return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), no_data_error="Kirkkoa ei tietokannassa")
+    if Tourguide.query.filter(Tourguide.church_id==church.id and Tourguide.user_id==user_id).first() is not None:
+        return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), in_table_error="Oppaalle on jo lisätty tämä kirkko")
 
     church_id = church.id
 
@@ -67,6 +69,9 @@ def guide_create_stat(church_id):
 
     if not form.validate():
         return render_template("admin/addvisitors.html", church=Church.query.filter(Church.id==church_id).first(), form=form, date=date)
+    if Visitors.query.filter(Visitors.church_id==church_id and Visitors.date==date).first() is not None:
+        nbm = Visitors.query.filter(Visitors.church_id==church_id and Visitors.date==date).first().visitors
+        return render_template("admin/addvisitors.html", church=Church.query.filter(Church.id==church_id).first(), form=form, date=date, in_table_error="Päivän kävijät on jo merkattu: " + str(nbm) + " kävijää")
     
     date = datetime.today().strftime('%Y-%m-%d')
     v = Visitors(church_id, form.visitors.data, date)
@@ -81,5 +86,10 @@ def guide_create_stat(church_id):
 def guide_view_stats():
 
     return render_template("admin/stats.html", visitor_sum=Visitors.sum(current_user.id), stats=Visitors.stats(current_user.id))
+
+@app.route("/admin/<church>/", methods=["GET", "POST"])
+@login_required
+def church_admin_view(church):
+    return render_template("churches/church.html", comments=Church.church_comments(church), church=Church.query.filter(Church.church==church).first())
     
  
