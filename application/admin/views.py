@@ -61,6 +61,7 @@ def guide_addvisitors(church_id):
 @app.route("/admin/guide/visitors/<church_id>/addvisitors", methods=["GET", "POST"])
 @login_required(role="GUIDE")
 def guide_create_stat(church_id):
+    date = datetime.today().strftime('%Y-%m-%d')
 
     form = VisitorForm(request.form)
 
@@ -74,3 +75,15 @@ def guide_create_stat(church_id):
     db.session().commit()
 
     return redirect(url_for("guide_churches"))
+
+@app.route("/admin/guide/stats", methods=["GET", "POST"])
+@login_required(role="GUIDE")   
+def guide_view_stats():
+
+    visitor_sum=Visitors.sum(current_user.id)
+    print("!!!!!!!!!!!!!!!")
+    print("summa kaikista: " + str(visitor_sum))
+
+    return render_template("admin/stats.html", visitor_sum=Visitors.sum(current_user.id), stats=Visitors.stats(current_user.id))
+    
+ 

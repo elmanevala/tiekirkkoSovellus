@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<table class="table">
+    <h1 class="h3 mb-3 font-weight-normal">Vierailijoita opastettavissa kirkkoissasi yhteensä: {{ visitor_sum }}</h1>
+    <thead>
+      <tr>
+        <th scope="col">Kirkko</th>
+        <th scope="col">Vierailijoita</th>
+        <th scope="col">Vierailijoita päivässä keskimäärin</th>
+        <th scope="col">Sovellukseen kirjattuja kommentteja</th>
+        <th scope="col">Selaa kommentteja</th>
+      </tr>
+    </thead>
+    {% for stat in stats %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ stat.church }}</th>
+        <td>{{ stat.sum }}</td>
+        <td>{{ stat.avg}}</td>
+        <td>{{ stat.comment_sum}}</td>
+        <td>
+            <form method="POST" action="">
+                <input type="submit" value="Kommentteihin" />
+            </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
