@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user, login_required, current_user
 
-from application import app, db
+from application import app, db, bcrypt
 
 from application.auth.models import User
 from application.visits.models import Visit
@@ -17,17 +17,29 @@ def auth_login():
         return render_template("auth/login.html", form=LoginForm())
 
     form = LoginForm(request.form)
-    # mahdolliset validoinnit
+
 
     user = User.query.filter_by(
-        username=form.username.data, password=form.password.data).first()
+        username=form.username.data).first()
 
-    if not user:
+    if user is None:
         return render_template("auth/login.html", form=form,
                                error="Käyttäjää ei löydy")
 
-    login_user(user)
-    return redirect(url_for("index"))
+
+    password = form.password.data
+    pw = user.password
+
+    if (bcrypt.check_password_hash(pw, password)):
+
+        login_user(user)
+        return redirect(url_for("index"))
+
+    else :
+            
+        return render_template("auth/login.html", form=form,
+                               error="Käyttäjää ei löydy")
+
 
 
 @app.route("/auth/logout")
@@ -59,7 +71,10 @@ def auth_newUser():
     else:
         admin = False
 
-    u = User(form.name.data, form.username.data, form.password.data, admin)
+    password = form.password.data
+    pwHash = bcrypt.generate_password_hash(password).decode('utf-8')
+
+    u = User(form.name.data, form.username.data, pwHash, admin)
 
     db.session().add(u)
     db.session().commit()

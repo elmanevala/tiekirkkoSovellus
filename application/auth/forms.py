@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, validators
-
+from wtforms import PasswordField, StringField, validators, ValidationError
+from wtforms.validators import EqualTo
 
 class LoginForm(FlaskForm):
     username = StringField("Käyttäjänimi", render_kw={"placeholder": "käyttäjänimi"})
@@ -13,15 +13,15 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
     username = StringField("Käyttäjänimi", [validators.Length(min=3, message='Käyttäjäimi vähintään kolme merkkiä pitkä')], render_kw={"placeholder": "käyttäjänimi"})
     name = StringField("Nimi", [validators.Length(min=3, message='Nimi vähintään kolme merkkiä pitkä')], render_kw={"placeholder": "nimi"})
-    password = PasswordField("Salasana", [validators.EqualTo('passwordcheck', message='Salasanat eivät täsmää')], render_kw={"placeholder": "salasana"}, )
+    password = PasswordField("Salasana", [validators.Length(min=8, max=20, message='Salasanassa oltava 8-20 merkkiä'), EqualTo('passwordcheck', message='Salasanat eivät täsmää')], render_kw={"placeholder": "salasana"}, )
     passwordcheck = PasswordField("Salasana uudestaan",render_kw={"placeholder": "salasana uudestaan"})
 
     class Meta:
         csrf = False
 
 class PasswordForm(FlaskForm):
-    password = PasswordField("Salasana", [validators.EqualTo('passwordcheck', message='Salasanat eivät täsmää')], render_kw={"placeholder": "salasana"}, )
+    password = PasswordField("Salasana", [validators.Length(min=8, max=20, message='Salasanassa oltava 8-20 merkkiä'), EqualTo('passwordcheck', message='Salasanat eivät täsmää')], render_kw={"placeholder": "salasana"}, )
     passwordcheck = PasswordField("Salasana uudestaan",render_kw={"placeholder": "salasana uudestaan"})
-    
+
     class Meta:
         csrf = False
