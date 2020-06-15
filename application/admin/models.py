@@ -1,6 +1,8 @@
 from application import db
 from sqlalchemy.sql import text
 
+import os
+
 
 class Tourguide(db.Model):
 
@@ -41,7 +43,11 @@ class Tourguide(db.Model):
 
         response = []
         for row in res:
-            date = str(row[1][:-9])
+            if os.environ.get("HEROKU"):
+                date = row[1].strftime("%x")
+            else:
+                date = str(row[1][:-9])
+            
             response.append({"username": row[0], "date_created": date, "church_nbm": row[2], "id": row[3]})
 
         return response

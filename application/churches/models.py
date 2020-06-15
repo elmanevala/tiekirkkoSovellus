@@ -1,6 +1,8 @@
 from application import db
 from sqlalchemy.sql import text
 
+import os
+
 
 class Church(db.Model):
 
@@ -62,7 +64,11 @@ class Church(db.Model):
 
         response = []
         for row in res:
-            date = str(row[1][:-9])
+            if os.environ.get("HEROKU"):
+                date = row[1].strftime("%x")
+            else:
+                date = str(row[1][:-9])
+                
             response.append({"comment": row[0], "date_created": date, "user": row[2]})
             
         return response
