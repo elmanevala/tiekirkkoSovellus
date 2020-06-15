@@ -1,12 +1,12 @@
 # User stories
 
-Sovelluksessa on neljä käyttäjäryhmää ei-kirjautuneet, kirjautuneet peruskäyttäjäy, oppaat ja admin.
+Sovelluksessa on neljä käyttäjäryhmää: ei-kirjautuneet, kirjautuneet peruskäyttäjät, oppaat ja admin.
 
-## Ei-kirjautuneena vierailijana haluan:
+### Ei-kirjautuneena vierailijana haluan:
 
 * etsiä tiettyä kirkkoa ja lukea sen kommentteja. **TEHTY**
 
-## Kirjautuneen peruskäyttäjänä haluan:
+### Kirjautuneen peruskäyttäjänä haluan:
 
 * selata eri kirkkoja ja niiden muiden kommetteja niistä. **TEHTY**
 * lisätä omia vierailuja eri kirkkoihin. **TEHTY**
@@ -19,13 +19,13 @@ Sovelluksessa on neljä käyttäjäryhmää ei-kirjautuneet, kirjautuneet perusk
 * poistaa käyttäjätunnukseni. **TEHTY**
 
 
-## Oppaana haluan:
+### Oppaana haluan:
 
 * tarkastella omia työpaikkojani ja niiden kommentteja. **TEHTY**
 * merkata, kuinka monta vierailijaa tiekirkossa kävi päivän aikana. **TEHTY**
 * tarkastella tilastoja työpaikkojeni vierailijamääristä. **TEHTY**
 
-## Adminina halua:
+### Adminina halua:
 
 * muuttaa peruskäyttäjiä oppaiksi lisäämällä niille kirkkoja.  **TEHTY**
 
