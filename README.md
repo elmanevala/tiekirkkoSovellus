@@ -5,7 +5,8 @@ Suomessa on 265 tiekirkkoa. Sovelluksen käyttäjät voivat kirjoittaa vierailui
 ## Sovellus herokussa
 
 * [Tiekirkkosovellus](https://tiekirkkosovellus.herokuapp.com)
-* Kirjautumistiedot:
+
+## Kirjautumistiedot:
 
 Admin-käyttäjä, joka voi muutta peruskäyttäjiä oppaiksi:
 ```
@@ -23,7 +24,7 @@ Peruskäyttäjä:
  Salasana: salasana1
 ```
 
-* HUOM: Salasanan muokkaus ei vielä ole yhdistettynä bcryptiin, joten uudella salasanalla ei voi vielä kirjautua.
+UOHM: Salasanan muokkaus ei vielä ole yhdistettynä bcryptiin, joten sovellluksessa muokatulla salasanalla ei voi kirjautua.
 
 
 ## Dokumentaatio
