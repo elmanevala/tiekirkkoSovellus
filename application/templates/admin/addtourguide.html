@@ -6,18 +6,18 @@
 <table>
     <tr>
         <form method="POST" action="{{ url_for('tourguide_church', user_id=user.id) }}">
-        <td>
+            <td>
 
-            <input type="text" id="church" name="church" list="church_list" placeholder="Kirkko">
-            <datalist id="church_list">
-                {% for church in churches %}
-                <option>{{ church }}</option>
-                {% endfor %}
-            </datalist>
-        </td>
-        <td>
-            <input type="submit" value="Lisää oppaalle kirkko" />
-        </td>
+                <input type="text" id="church" name="church" list="church_list" placeholder="Kirkko">
+                <datalist id="church_list">
+                    {% for church in churches %}
+                    <option>{{ church }}</option>
+                    {% endfor %}
+                </datalist>
+            </td>
+            <td>
+                <input type="submit" value="Lisää oppaalle kirkko" />
+            </td>
         </form>
     </tr>
     <tr>
@@ -27,5 +27,12 @@
         </td>
     </tr>
 </table>
+
+<hX>Oppaan nykyiset kirkot</hX>
+{% for church in guide_churches %}
+<ul>
+    <li>{{ church.church }}, {{church.town}}</li>
+</ul>
+{% endfor %}
 
 {% endblock %}

@@ -5,6 +5,7 @@
     <h1 class="h3 mb-3 font-weight-normal">{{ church.church }}, {{ church.town }}</h1>
     <thead>
         <tr>
+            <th scope="col">Käyttäjä</th>
             <th scope="col">Lisätty</th>
             <th scope="col">Kommentti</th>
         </tr>
@@ -12,7 +13,8 @@
     <tbody>
         {% for comment in comments %}
         <tr>
-            <td>{{ comment.date }}</td>
+            <td>{{ comment.user}}</td>
+            <td>{{ comment.date_created }}</td>
             <td>{{ comment.comment }}</td>
         </tr>
         {% endfor %}

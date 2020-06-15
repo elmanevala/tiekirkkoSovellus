@@ -16,14 +16,14 @@ from datetime import datetime
 @login_required(role="ADMIN")
 def admin_users():
 
-    return render_template("admin/userlist.html", users=User.query.filter(User.id!=1))
+    return render_template("admin/userlist.html", users=Tourguide.guide_list())
 
 
 @app.route("/admin/users/tourguide/<user_id>", methods=["GET", "POST"])
 @login_required(role="ADMIN")
 def add_tourguide(user_id):
 
-    return render_template("admin/addtourguide.html", user=User.query.filter(User.id == user_id).first())
+    return render_template("admin/addtourguide.html", user=User.query.filter(User.id == user_id).first(), guide_churches=Tourguide.church_list(user_id))
 
 
 @app.route("/admin/users/tourguide/<user_id>/addchurch", methods=["GET", "POST"])
@@ -36,12 +36,6 @@ def tourguide_church(user_id):
     if church is None:
         return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), no_data_error="Kirkkoa ei tietokannassa")
     if Tourguide.query.filter(Tourguide.church_id==church.id, Tourguide.user_id==user_id).first() is not None:
-        print("tämä pitäisi olla user_id: " + str(user_id))
-        print("!!!!!!!! nyt menee joku mönkään!!")
-        opas = Tourguide.query.filter(Tourguide.church_id==church.id and Tourguide.user_id==user_id).first()
-        print("!!!!! käyttäjä: " + str(opas.user_id))
-        print("!!!!!!!! kirkko: " + str(opas.church_id))
-
         return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), in_table_error="Oppaalle on jo lisätty tämä kirkko")
 
     church_id = church.id

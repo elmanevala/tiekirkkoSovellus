@@ -34,3 +34,4 @@ class Visit(Base):
                 {"church": row[0], "comment": row[1], "tourguide": row[2], "id": row[3]})
 
         return response
+

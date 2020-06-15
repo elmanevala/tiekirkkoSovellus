@@ -8,7 +8,8 @@
       <tr>
         <th scope="col">Käyttäjänimi</th>
         <th scope="col">Tili luotu</th>
-        <th scope="col">Tee käyttäjästä opas</th>
+        <th scope="col">Käyttäjälle merkattuja kirkkoja</th>
+        <th scope="col">Lisää käyttäjälle kirkkoja</th>
       </tr>
     </thead>
     {% for user in users %}
@@ -16,6 +17,7 @@
       <tr>
         <th scope="row">{{ user.username }}</th>
         <td>{{ user.date_created }}</td>
+        <td>{{ user.church_nbm }}</td>
         <td>
             <form method="POST" action="{{ url_for('add_tourguide', user_id=user.id) }}">
                 <input type="submit" value="Lisää käyttäjälle kirkkoja" />

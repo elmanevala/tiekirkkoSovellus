@@ -21,7 +21,7 @@
         <td>{{ stat.avg}}</td>
         <td>{{ stat.comment_sum}}</td>
         <td>
-            <form method="POST" action="">
+            <form method="POST" action="{{ url_for('church_comment', church=stat.church, town_name=stat.town) }}">
                 <input type="submit" value="Kommentteihin" />
             </form>
         </td>

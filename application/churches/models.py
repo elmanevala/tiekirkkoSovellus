@@ -53,14 +53,17 @@ class Church(db.Model):
     @staticmethod
     def church_comments(church):
 
-        stmt = text("SELECT V.comment, V.date_created FROM Church C JOIN Visit V ON C.id=V.church_id AND C.church=:church").params(
+        stmt = text("SELECT V.comment, V.date_created,"
+        "(SELECT U.username FROM Account U WHERE U.id=V.account_id)"
+        " FROM Church C JOIN Visit V ON C.id=V.church_id AND C.church=:church").params(
             church=church)
 
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"comment": row[0], "date": row[1]})
+            date = str(row[1][:-9])
+            response.append({"comment": row[0], "date_created": date, "user": row[2]})
             
         return response
 
