@@ -24,7 +24,7 @@ Peruskäyttäjä:
  Salasana: salasana1
 ```
 
-UOHM: Salasanan muokkaus ei vielä ole yhdistettynä bcryptiin, joten sovellluksessa muokatulla salasanalla ei voi kirjautua.
+HUOM: Salasanan muokkaus ei vielä ole yhdistettynä bcryptiin, joten sovellluksessa muokatulla salasanalla ei voi kirjautua.
 
 
 ## Dokumentaatio
