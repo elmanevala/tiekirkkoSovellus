@@ -1,18 +1,27 @@
 # User stories
 
-* Sovelluksessa on kaksi käyttäjäryhmää, oppaat ja käyttäjät.
+* Sovelluksessa on neljä käyttäjäryhmää, oppaat ja käyttäjät.
 
-* Käyttäjänä haluan:
-	* selata eri kirkkoja ja niiden muiden kommetteja niistä.
-	* lisätä omia vierailuja eri kirkkoihin.
-	* merkata oliko kirkossa vierailuni aikana opas.
-	* etsiä tietyn paikkakunnan kaikki tiekirkot
+* Ei-kirjautuneena vierailijana haluan:
+	* etsiä tiettyä kirkkoa ja lukea sen kommentteja. **TEHTY**
+
+* Kirjautuneen peruskäyttäjänä haluan:
+	* selata eri kirkkoja ja niiden muiden kommetteja niistä. **TEHTY**
+	* lisätä omia vierailuja eri kirkkoihin. **TEHTY**
+	* merkata oliko kirkossa vierailuni aikana opas. **TEHTY**
+	* tarkastella tietyn paikkakunnan kaikkia tiekirkkoja. **TEHTY**
 	* tarkastella, missä kirkossa on eniten kirjattuja vierailuja.
+	* muokata, lukea ja poistaa kirjoittamiani kommentteja.  **TEHTY**
+	* tarkastella oman käyttäjätunnukseni tietoja. **TEHTY**
+	* muokata omien käyttäjätunnusteni tietoja. **TEHTY**
+	* poistaa käyttäjätunnukseni. **TEHTY**
+
 
 * Oppaana haluan:
-	* tarkastella omien työpaikkojeni kommentteja.
-	* merkata, kuinka monta vierailijaa tiekirkossa kävi päivän aikana. Myös ne vierailijat, jotka eivät käyttäneet sovellusta.
-	* selata eri päivien vierailijamääriä työpaikoissani.
-	* lisätä kirkkoja työpaikakseni.
-	* poistaa kirkkoja työpaikoistani.
+	* tarkastella omia työpaikkojani ja niiden kommentteja. **TEHTY**
+	* merkata, kuinka monta vierailijaa tiekirkossa kävi päivän aikana. **TEHTY**
+	* tarkastella tilastoja työpaikkojeni vierailijamääristä. **TEHTY**
+
+* Adminina halua:
+	* muuttaa peruskäyttäjiä oppaiksi lisäämällä niille kirkkoja.  **TEHTY**
 

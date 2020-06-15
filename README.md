@@ -10,24 +10,26 @@ Suomessa on 265 tiekirkkoa. Sovelluksen käyttäjät voivat kirjoittaa vierailui
 Admin-käyttäjä, joka voi muutta peruskäyttäjiä oppaiksi:
 ```
  Käyttäjänimi: admin
- Salasana: salasana
+ Salasana: salasana1
 ```
 Opas, joka voi merkata kuinka monta vierailijaa kävi tänään:
 ```
  Käyttäjänimi: opas
- Salasana: salasana
+ Salasana: salasana1
 ```
 Peruskäyttäjä:
 ```
- Käyttäjänimi: peruskäyttäjä
- Salasana: salasana
+ Käyttäjänimi: peruskayttaja
+ Salasana: salasana1
 ```
 
-* HUOM: Oppaiden kävijämäärien lisäyksiä ei ole vielä validoitu, joten "vääristä" syötteistä tulee virhe.
+* HUOM: Salasanan muokkaus ei vielä ole yhdistettynä bcryptiin, joten uudella salasanalla ei voi vielä kirjautua.
 
 
 ## Dokumentaatio
 
 * [User stories](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/user_stories.md)
 * [Tietokantakaavio](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/tietokantakaavio.png)
+* [Käyttöohjeet](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/kayttoohje.md)
+* [Asennusohje](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/asennusohje.md)
 
