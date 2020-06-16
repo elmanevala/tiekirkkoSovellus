@@ -11,8 +11,8 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField("Käyttäjänimi", [validators.Length(min=3, message='Käyttäjäimi vähintään kolme merkkiä pitkä')], render_kw={"placeholder": "käyttäjänimi"})
-    name = StringField("Nimi", [validators.Length(min=3, message='Nimi vähintään kolme merkkiä pitkä')], render_kw={"placeholder": "nimi"})
+    username = StringField("Käyttäjänimi", [validators.Length(min=3, max=20, message='Käyttäjäimi 3-20 merkkiä')], render_kw={"placeholder": "käyttäjänimi"})
+    name = StringField("Nimi", [validators.Length(min=3, max=50, message='Nimi 3-50 merkkiä')], render_kw={"placeholder": "nimi"})
     password = PasswordField("Salasana", [validators.Length(min=8, max=20, message='Salasanassa oltava 8-20 merkkiä'), EqualTo('passwordcheck', message='Salasanat eivät täsmää')], render_kw={"placeholder": "salasana"}, )
     passwordcheck = PasswordField("Salasana uudestaan",render_kw={"placeholder": "salasana uudestaan"})
 

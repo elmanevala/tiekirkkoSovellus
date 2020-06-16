@@ -132,7 +132,11 @@ def update_password():
             return render_template("auth/myinfo.html", form=form, user=current_user)
 
     u = User.query.filter(User.id == current_user.id).first()
-    u.password = form.password.data
+
+    password = form.password.data
+    pwHash = bcrypt.generate_password_hash(password).decode('utf-8')
+
+    u.password = pwHash
 
     db.session().add(u)
     db.session().commit()

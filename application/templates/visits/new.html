@@ -32,7 +32,7 @@
       <td>
         <ul>
           {% for error in form.comment.errors %}
-          <li>Kommentin oltava ainakin kaksi merkkiä pitkä</li>
+          <li>{{ error }}</li>
           {% endfor %}
         </ul>
       </td>

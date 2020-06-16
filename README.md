@@ -24,8 +24,6 @@ Peruskäyttäjä:
  Salasana: salasana1
 ```
 
-HUOM: Salasanan muokkaus ei vielä ole yhdistettynä bcryptiin, joten sovellluksessa muokatulla salasanalla ei voi kirjautua.
-
 
 ## Dokumentaatio
 

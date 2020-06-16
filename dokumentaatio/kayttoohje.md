@@ -35,7 +35,6 @@ Jos käytät sovellusta paikallisesti, ensimmäinen luotu käyttäjä on admin.
     * Selaa kirkkoja kunnittain -nappula vie sinut listanäkymään, jossa on kaikki tiekirkolliset kunnat. Näät listasta kuinka monta kirkkoa kyseisessä kunnassa on ja kuinka monta kommenttia kyseisen kunnan kirkoista on jätetty. Voit siirtyä tarkastelemaan kunnan kirkkoja ja niiden kommentteja painamalla nappuloita Selaa kunnan kirkkoja ja Selaa kirkon vierailuja.
     * Lisää uusi vierailu -nappula vie sinut näkymään, jossa voit lisätä uusia vierailuja. Kuten oikean ylälaidan hakukenttä, myös uuden kirkon lisäämiskenttä ehdottaa valmiiksi tietokannassa olevia kirkkoja. Kun täytät lomakkeen tiedot, uusi kommentti on tietokannassa. Voit nähdä sen omien vierailuidesi listalla ja muut voivat nähdä kommenttisi ja käyttäjänimesi, kun he etsivät kirkkoja tai selailevat kuntia.
     * Omat tiedot -nappula vie sinut sivulle, jossa on käyttäjätunnuksesi tiedot. Voit myös muokata omia tietojasi tässä näkymässä.
-        * HUOM: 15.6. ja 16.6. on pieni hetki jolloin muutetulla salasanalla ei enää pääse kirjautumaan sovellukseen!!
     * Kirjaudu ulos -nappula kirjaa sinut ulos ja vie takaisin etusivulle.
 
 ## Käyttöohje oppaille
