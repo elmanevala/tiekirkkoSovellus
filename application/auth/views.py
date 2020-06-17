@@ -42,13 +42,13 @@ def auth_login():
 
 
 
-@app.route("/auth/logout")
+@app.route("/auth/logout", methods=["GET"])
 def auth_logout():
     logout_user()
     return redirect(url_for("index"))
 
 
-@app.route("/auth/registration", )
+@app.route("/auth/registration", methods=["GET"])
 def auth_register():
     return render_template("auth/registration.html", form=RegistrationForm())
 

@@ -33,10 +33,10 @@ def tourguide_church(user_id):
     church_name = request.form.get("church")
     church = Church.query.filter(Church.church == church_name).first()
 
-    if church is None:
-        return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), no_data_error="Kirkkoa ei tietokannassa")
+    if not church:
+        return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), guide_churches=Tourguide.church_list(user_id), no_data_error="Kirkkoa ei tietokannassa")
     if Tourguide.query.filter(Tourguide.church_id==church.id, Tourguide.user_id==user_id).first() is not None:
-        return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), in_table_error="Oppaalle on jo lisätty tämä kirkko")
+        return render_template("admin/addtourguide.html", user=User.query.filter(User.id==user_id).first(), guide_churches=Tourguide.church_list(user_id), in_table_error="Oppaalle on jo lisätty tämä kirkko")
 
     church_id = church.id
 
@@ -44,7 +44,8 @@ def tourguide_church(user_id):
     db.session().add(tg)
     db.session().commit()
 
-    return render_template("admin/userlist.html", users=User.query.filter(User.id!=1))
+    return redirect(url_for("admin_users"))
+
 
 @app.route("/admin/guide/", methods=["GET", "POST"])
 @login_required(role="GUIDE")
@@ -55,6 +56,9 @@ def guide_churches():
 @app.route("/admin/guide/visitors/<church_id>", methods=["GET", "POST"])
 @login_required(role="GUIDE")
 def guide_addvisitors(church_id):
+    isguide = Tourguide.query.filter(Tourguide.church_id==church_id, Tourguide.user_id==current_user.id).first()
+    if not isguide:
+        return redirect(url_for("guide_churches"))
     date = datetime.today().strftime('%Y-%m-%d')
 
     return render_template("admin/addvisitors.html", church=Church.query.filter(Church.id==church_id).first(), form=VisitorForm(), date=date)
@@ -64,6 +68,9 @@ def guide_addvisitors(church_id):
 @login_required(role="GUIDE")
 def guide_create_stat(church_id):
     date = datetime.today().strftime('%Y-%m-%d')
+    isguide = Tourguide.query.filter(Tourguide.church_id==church_id, Tourguide.user_id==current_user.id).first()
+    if not isguide:
+        return redirect(url_for("guide_churches"))
 
     form = VisitorForm(request.form)
 

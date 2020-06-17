@@ -57,6 +57,10 @@ def tourguide_set_present(visit_id):
 
     v = Visit.query.get(visit_id)
 
+    if v.account_id != current_user.id:
+        login_manager = LoginManager()
+        return login_manager.unauthorized()
+
     if v.tourguide == True:
         v.tourguide = False
     else:
@@ -72,6 +76,11 @@ def tourguide_set_present(visit_id):
 def visit_edit(visit_id):
 
     v = Visit.query.filter(Visit.id == visit_id).first()
+
+    if v.account_id != current_user.id:
+        login_manager = LoginManager()
+        return login_manager.unauthorized()
+
     visit_church = v.church_id
 
     return render_template("visits/edit.html", visit=Visit.query.filter(Visit.id == visit_id).first(), form=EditForm(), church=Church.query.filter(Church.id == visit_church).first())

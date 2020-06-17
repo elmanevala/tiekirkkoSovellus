@@ -3,6 +3,7 @@
 {% block body %}
 {{ error }}
 <table>
+    <h1 class="h3 mb-3 font-weight-normal">Tunnuksen tiedot</h1>
     <thead>
         <tr>
             <th scope="col"> </th>
@@ -20,10 +21,10 @@
             <td>
                 <input type="text" name="name" placeholder="uusi nimi">
             </td>
-            <td>{{ nameerror }}</td>
             <td colspan="2">
                 <input type="submit" value="Päivitä nimi" />
             </td>
+            <td>{{ nameerror }}</td>
         </form>
     </tr>
     <tr>
@@ -36,31 +37,28 @@
             <td>
                 <input type="text" name="username" placeholder="uusi käyttäjänimi">
             </td>
-            <td>{{ usernameerror }}</td>
             <td colspan="2">
                 <input type="submit" value="Päivitä käyttäjänimi" />
             </td>
+            <td>{{ usernameerror }}</td>
         </form>
     </tr>
     <tr>
         <td>Muuta salasanaa</td>
         <form method="POST" action="{{ url_for('update_password') }}">
-            <td>
-                {{ form.password }}
+            <td>{{ form.password }}</td>
             <td>{{ form.passwordcheck }}</td>
-            </td>
             <td colspan="2">
                 <input type="submit" value="Päivitä salasana" />
             </td>
-
-    </tr>
-    <tr>
+        </form>
         {% for error in form.password.errors %}
         <td>{{ error }}</td>
         {% endfor %}
-        </form>
     </tr>
     <tr>
+        <td></td>
+        <td></td>
         <form method="POST" action="{{ url_for('update_deleteaccount') }}">
             <td><input type="checkbox" name="delete">
                 <label for="delete">Poista tili</label>
