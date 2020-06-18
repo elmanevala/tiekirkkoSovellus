@@ -99,3 +99,15 @@ class Visitors(db.Model):
                 {"church": row[0], "sum": row[1], "avg": row[2], "comment_sum": row[3], "church_id": row[4], "town": row[5]})
 
         return response
+
+    @staticmethod
+    def visitors_in_total():
+
+        stmt = text("SELECT SUM(visitors) FROM Visitors")
+
+        res = db.engine.execute(stmt)
+
+        for row in res:
+            response= row[0]
+            
+        return response

@@ -3,6 +3,10 @@
 
 {% block body %}
   <p>
-    <h1 class="h3 mb-3 font-weight-normal">Tervetuloa!</h1>
+    <main role="main" class="container">
+      <h1 class="mt-5">Tervetuloa!</h1>
+      <p class="lead">Tiekirkoissa on käynyt tänä kesänä jo {{ visitor_total }} vierailijaa ja kommentteja on jätetty {{ visit_total }}!</p>
+    </main>
+
   </p>
 {% endblock %}

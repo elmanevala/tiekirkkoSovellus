@@ -2,74 +2,49 @@
 
 
 {% block body %}
-<table>
-    <h1 class="h3 mb-3 font-weight-normal">Muokkaa vierailua</h1>
-    <tr>
-        <td>
-            Kirkko
-        </td>
-        <td>
-            {{ church.church }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Nykyinen kommentti
-        </td>
-        <td>
-            {{ visit.comment }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Vierailu lisätty
-        </td>
-        <td>
-            {{ visit.date_created}}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Opas paikalla
-        </td>
-        <td>
-            {% if visit.tourguide %}
-            Kyllä
-            {% else %}
-            Ei
-            {% endif %}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <form method="POST" action="{{ url_for('tourguide_set_present', visit_id=visit.id) }}">
-                <input type="submit" value="Muuta oppaan statusta!" />
+
+<table class="table">
+    <h1 class="h3 mb-3 font-weight-normal">Vierailun tiedot ja muokkaus</h1>
+    <thead>
+        <tr>
+            <th scope="col">Kirkko</th>
+            <th scope="col">Kommentti</th>
+            <th scope="col">Lisätty</th>
+            <th scope="col">Opas paikalla</th>
+            <th scope="col">Muokkaa oppaan statusta</th>
+            <th scope="col">Muokkaa kommenttia</th>
+            <th scope="col">Päivitä kommentti</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ church.church }}</td>
+            <td>{{ visit.comment }}</td>
+            <td>{{ visit.date_created }}</td>
+            <td>
+                {% if visit.tourguide %}
+                Kyllä
+                {% else %}
+                Ei
+                {% endif %}
+            </td>
+            <td>
+                <form method="POST" action="{{ url_for('tourguide_set_present', visit_id=visit.id) }}">
+                    <input type="submit" value="Muuta oppaan statusta" />
+                </form>
+            </td>
+            <form method="POST" action="{{ url_for('visits_edit_entry', visit_id=visit.id) }}">
+                <td>{{ form.comment }}</td>
+                <td colspan="2">
+                    <input type="submit" value="Tallenna päivitetty kommentti" />
+                </td>
+                {% for error in form.comment.errors %}
+                <td>{{ error }} </td>
+                {% endfor %}
             </form>
-        </td>
-    </tr>
-    <form method="POST" action="{{ url_for('visits_edit_entry', visit_id=visit.id) }}">
-        <tr>
-            <td>
-                {{ form.comment.label }}
-            </td>
-            <td>
-                {{ form.comment }}
-            </td>
         </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Tallenna päivitetty kommentti" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <ul>
-                    {% for error in form.comment.errors %}
-                    <td>{{ error }} </td>
-                    {% endfor %}
-                </ul>
-            </td>
-        </tr>
-    </form>
+    </tbody>
 </table>
+
+
 {% endblock %}

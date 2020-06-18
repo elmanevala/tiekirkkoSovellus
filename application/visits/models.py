@@ -35,3 +35,15 @@ class Visit(Base):
 
         return response
 
+    @staticmethod
+    def comments_in_total():
+
+        stmt = text("SELECT COUNT() FROM Visit")
+
+        res = db.engine.execute(stmt)
+
+        for row in res:
+            response= row[0]
+
+        return response
+

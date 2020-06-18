@@ -9,7 +9,6 @@
             <th scope="col"> </th>
             <th scope="col">Nykyiset tiedot</th>
             <th scope="col">Uudet tiedot</th>
-            <th scope="col">Päivitä</th>
         </tr>
     </thead>
     <tr>
@@ -22,7 +21,7 @@
                 <input type="text" name="name" placeholder="uusi nimi">
             </td>
             <td colspan="2">
-                <input type="submit" value="Päivitä nimi" />
+                <input type="submit" value="Päivitä" />
             </td>
             <td>{{ nameerror }}</td>
         </form>
@@ -38,7 +37,7 @@
                 <input type="text" name="username" placeholder="uusi käyttäjänimi">
             </td>
             <td colspan="2">
-                <input type="submit" value="Päivitä käyttäjänimi" />
+                <input type="submit" value="Päivitä" />
             </td>
             <td>{{ usernameerror }}</td>
         </form>
@@ -49,7 +48,7 @@
             <td>{{ form.password }}</td>
             <td>{{ form.passwordcheck }}</td>
             <td colspan="2">
-                <input type="submit" value="Päivitä salasana" />
+                <input type="submit" value="Päivitä" />
             </td>
         </form>
         {% for error in form.password.errors %}
