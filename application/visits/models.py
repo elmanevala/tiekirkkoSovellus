@@ -38,7 +38,7 @@ class Visit(Base):
     @staticmethod
     def comments_in_total():
 
-        stmt = text("SELECT COUNT(visit) FROM Visit")
+        stmt = text("SELECT COUNT(comment) FROM Visit")
 
         res = db.engine.execute(stmt)
 

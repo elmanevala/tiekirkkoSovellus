@@ -147,6 +147,8 @@ def update_password():
 @login_required
 def update_deleteaccount():
     delete = request.form.get("delete")
+    if current_user.admin:
+        return render_template("auth/myinfo.html", form=PasswordForm(), user=User.query.filter(User.id == current_user.id).first(), adminerror="Admin-käyttäjä ei voi poistaa tiliään.")
 
     if delete:
         
