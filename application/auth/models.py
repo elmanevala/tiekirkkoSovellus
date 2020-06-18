@@ -8,7 +8,7 @@ class User(Base):
     __tablename__ = "account"
 
     name = db.Column(db.String(144), nullable=False)
-    username = db.Column(db.String(144), index=True, nullable=False)
+    username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
     admin = db.Column(db.Boolean, default=False, nullable=False)
 

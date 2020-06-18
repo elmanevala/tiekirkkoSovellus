@@ -7,7 +7,7 @@ import os
 class Church(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    church = db.Column(db.String(144), nullable=False)
+    church = db.Column(db.String(144), nullable=False, index=True)
     town = db.Column(db.String(144), nullable=False)
 
     visits = db.relationship("Visit", backref='Church', lazy=True)
