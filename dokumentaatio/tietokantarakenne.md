@@ -1,5 +1,7 @@
 # Tietokantarakenne
 
+Sovellus käyttää tietokannanhallintajärjestelmänään paikkallisesti SQLiteä ja Herokussa PostgreSQL:ää.
+
 ## CREATE TABLE -lauseet
 
 ```
@@ -53,5 +55,8 @@ CREATE TABLE visitors (
 
 ```
 
+Koska sovelluksessa tehdään useita kyselyitä Church-taulun church-sarakeesta, se on indeksöity.
 
 ## Päivitetty tietokantakaavio
+
+![alt text](https://raw.githubusercontent.com/elmanevala/tiekirkkoSovellus/master/dokumentaatio/tietokantakaavio.png)
