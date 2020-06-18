@@ -31,4 +31,5 @@ Peruskäyttäjä:
 * [Tietokantakaavio](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/tietokantakaavio.png)
 * [Käyttöohjeet](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/kayttoohje.md)
 * [Asennusohje](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/asennusohje.md)
-
+* [Tietokantarakenne](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/tietokantarakenne.md)
+* [Rajoitteet ja jatkokehitys](https://github.com/elmanevala/tiekirkkoSovellus/blob/master/dokumentaatio/puutteet_rajoitteet.md)

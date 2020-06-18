@@ -14,6 +14,8 @@ Sovelluksessa on neljä käyttäjäryhmää: ei-kirjautuneet, kirjautuneet perus
 
 ### Ei-kirjautuneena vierailijana haluan:
 
+
+
 * nähdä etusivulla tietoja kirkkojen vierailuista. **TEHTY**
 
 Vierailijoita yhteensä:
@@ -23,8 +25,12 @@ SELECT SUM(visitors) FROM Visitors
 
 Kommentteja yhteensä:
 ```
-SELECT COUNT(visit) FROM Visit
+SELECT COUNT(comment) FROM Visit
 ```
+
+
+
+
 
 * etsiä tiettyä kirkkoa ja lukea sen kommentteja. **TEHTY**
 
