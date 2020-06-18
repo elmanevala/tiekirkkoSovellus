@@ -29,7 +29,7 @@ FROM Church C JOIN Visit V ON C.id=V.church_id AND C.church='Keski-Porin kirkko'
 
 
 
-* rekisteröityä sovelluksen käyttäjäksi.
+* rekisteröityä sovelluksen käyttäjäksi. **TEHTY**
 
 
 Salasanan luomisessa käytetetään Bcryptautsta joten todellisuudessä salasana ei mene sellaisenaan tietokantaan, mutta teoriassa tämä onnistuisi koodilla:
