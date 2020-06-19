@@ -76,8 +76,8 @@ def guide_create_stat(church_id):
 
     if not form.validate():
         return render_template("admin/addvisitors.html", church=Church.query.filter(Church.id==church_id).first(), form=form, date=date)
-    if Visitors.query.filter(Visitors.church_id==church_id and Visitors.date==date).first() is not None:
-        nbm = Visitors.query.filter(Visitors.church_id==church_id and Visitors.date==date).first().visitors
+    if Visitors.query.filter(Visitors.church_id==church_id, Visitors.date==date).first() is not None:
+        nbm = Visitors.query.filter(Visitors.church_id==church_id, Visitors.date==date).first().visitors
         return render_template("admin/addvisitors.html", church=Church.query.filter(Church.id==church_id).first(), form=form, date=date, in_table_error="Päivän kävijät on jo merkattu: " + str(nbm) + " kävijää")
     
     date = datetime.today().strftime('%Y-%m-%d')
