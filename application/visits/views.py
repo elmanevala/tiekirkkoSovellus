@@ -22,7 +22,7 @@ def visits_create():
     church = request.form.get("church")
 
     if not form.validate():
-        return render_template("visits/new.html", form=form)
+        return render_template("visits/new.html", form=form, error="Kirkkoa ei tietokannassa")
     if Church.query.filter(Church.church == church).first() is None:
         allData = Church.query.all()
 
